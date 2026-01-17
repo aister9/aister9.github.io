@@ -31,15 +31,17 @@
 
 <script>
   function languageHandler() {
-    let lang = localStorage.getItem("lang");
+    const languageOrder = ["en", "kr", "jp"];
+    let lang = localStorage.getItem("lang") || "en";
+    let currentIndex = languageOrder.indexOf(lang);
 
-    if (lang === "en") {
-      localStorage.setItem("lang", "fa");
-      location.reload();
-    } else {
-      localStorage.setItem("lang", "en");
-      location.reload();
+    if (currentIndex === -1) {
+      currentIndex = 0;
     }
+
+    const nextIndex = (currentIndex + 1) % languageOrder.length;
+    localStorage.setItem("lang", languageOrder[nextIndex]);
+    location.reload();
   }
 </script>
 

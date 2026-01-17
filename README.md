@@ -37,10 +37,10 @@ Your resume: resume.pdf
 
 ## Pages configuration
 
-In `lang` directory there are two files named `en.js` and `fa.js`.
+In `lang` directory there are files named `en.js`, `kr.js`, and `jp.js`.
 You can change data in these files based on your information for home, publications, research, jobs pages and navbar titles as provided template.
 
-\*\* Remeber to change both both `fa.js` and `en.js` files.
+\*\* Remember to change all language files you plan to use.
 
 ## Authors
 

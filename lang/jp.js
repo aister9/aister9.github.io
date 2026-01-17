@@ -1,18 +1,18 @@
 // ---------- Navbar titles
-const enNavbarData = {
-  title: "YoungWoo Kim",
-  Home: "Home",
-  publications: "publications",
-  Research: "Research",
-  Jobs: "Jobs",
-  Contact: "Contact",
+const jpNavbarData = {
+  title: "あなたの名前",
+  Home: "ホーム",
+  publications: "出版物",
+  Research: "研究",
+  Jobs: "職歴",
+  Contact: "連絡先",
 };
 
 // ---------- Home page data
-const enHomePageData = {
-  name: "YoungWoo",
-  jobTitle: " Ph.D Candidate ",
-  home_title: "About me",
+const jpHomePageData = {
+  name: "あなたの名前",
+  jobTitle: "職種",
+  home_title: "自己紹介",
   home_content: `
   <div>
     <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
@@ -31,8 +31,8 @@ const enHomePageData = {
 };
 
 // ---------- Publications page data
-const enPublicationsPageData = {
-  type_one_title: "Journal",
+const jpPublicationsPageData = {
+  type_one_title: "ジャーナル論文",
 
   type_one_items: [
     {
@@ -54,7 +54,7 @@ const enPublicationsPageData = {
     },
   ],
 
-  type_two_title: "Conference",
+  type_two_title: "査読中",
   type_two_items: [
     {
       title: `Elena Reinaga. 2016. If I were born again I would still be a sex worker. P. Purdy and N. Umansky. OpenDemocracy.`,
@@ -74,7 +74,7 @@ const enPublicationsPageData = {
     },
   ],
 
-  type_three_title: "Poster",
+  type_three_title: "書籍章",
   type_three_items: [
     {
       title: `Elena Reinaga. 2016. If I were born again I would still be a sex worker. P. Purdy and N. Umansky. OpenDemocracy.`,
@@ -92,12 +92,32 @@ const enPublicationsPageData = {
       github: "http://github.com",
       writers: ["Claudio Cioffi-Revilla"],
     },
-  ]
+  ],
+
+  type_four_title: "",
+  type_four_items: [
+    {
+      title: `Elena Reinaga. 2016. If I were born again I would still be a sex worker. P. Purdy and N. Umansky. OpenDemocracy.`,
+      abstract: ``,
+      date: "",
+      link: "",
+      github: "",
+      writers: [],
+    },
+    {
+      title: `“Now you are speaking my language” Language-specific transparency and legislative negotiations in the Council of Ministers of the European Union. (with ).`,
+      abstract: `we adopt an elite-focused approach to explore the ways in which left and right-leaning American political elites differ in their visual and emotional framing of climate change. Overall, this study provides new insight into how politicians across party lines communicate about critical and polarizing political issues, such as climate change, by adapting to novel online communication channels.`,
+      date: "1996",
+      link: "http://link.com",
+      github: "http://github.com",
+      writers: ["Claudio Cioffi-Revilla"],
+    },
+  ],
 };
 
 // ---------- Research page data
-const enResearchPageData = {
-  title: "Research",
+const jpResearchPageData = {
+  title: "研究",
   content: `
     <div class='research_content'>
         <p> My research goal is to combine the three major sub-fields of the Computational Social Science, including Social Media Data Analysis, Network Analysis, and Agent-based Modeling, to study various social science problems. Below you can find a summary of my past and current projects.</p>
@@ -111,8 +131,8 @@ const enResearchPageData = {
 };
 
 // ---------- Jobs page data
-const enJobsPageData = {
-  title: "Jobs",
+const jpJobsPageData = {
+  title: "職歴",
   items: [
     {
       title: `Job title`,

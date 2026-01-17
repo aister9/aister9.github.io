@@ -1,37 +1,45 @@
 $(document).ready(function () {
   let lang = localStorage.getItem("lang");
 
-  if (!lang) {
+  const supportedLanguages = ["en", "kr", "jp"];
+  if (!lang || !supportedLanguages.includes(lang)) {
+    lang = "en";
     localStorage.setItem("lang", "en");
   }
 
+  const navbarByLang = {
+    en: enNavbarData,
+    kr: krNavbarData,
+    jp: jpNavbarData,
+  };
+  const activeNavbarData = navbarByLang[lang] || enNavbarData;
+
   const navbar_data = {
-    title: lang === "fa" ? faNavbarData.title : enNavbarData.title,
+    title: activeNavbarData.title,
     navbar_links: [
       {
         active: navbarLinks.home ? true : false,
-        title: lang === "fa" ? faNavbarData.Home : enNavbarData.Home,
+        title: activeNavbarData.Home,
         url: "/",
       },
       {
         active: navbarLinks.publications ? true : false,
-        title:
-          lang === "fa" ? faNavbarData.publications : enNavbarData.publications,
+        title: activeNavbarData.publications,
         url: "/publications.html",
       },
       {
         active: navbarLinks.research ? true : false,
-        title: lang === "fa" ? faNavbarData.Research : enNavbarData.Research,
+        title: activeNavbarData.Research,
         url: "/research.html",
       },
       {
         active: navbarLinks.jobs ? true : false,
-        title: lang === "fa" ? faNavbarData.Jobs : enNavbarData.Jobs,
+        title: activeNavbarData.Jobs,
         url: "/jobs.html",
       },
       {
         active: navbarLinks.contact ? true : false,
-        title: lang === "fa" ? faNavbarData.Contact : enNavbarData.Contact,
+        title: activeNavbarData.Contact,
         url: "/contact.html",
       },
     ],

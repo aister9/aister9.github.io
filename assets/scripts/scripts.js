@@ -3,30 +3,32 @@ var pathname = window.location.pathname.replace(".html", "");
 
 $(document).ready(function () {
   // ---------- Language Handler
-  if (!lang) {
+  const supportedLanguages = ["en", "kr", "jp"];
+  const languageOrder = ["en", "kr", "jp"];
+  const languageMeta = {
+    en: { label: "EN", icon: "../assets/images/icons/en.png" },
+    kr: { label: "KR", icon: "../assets/images/icons/en.png" },
+    jp: { label: "JP", icon: "../assets/images/icons/en.png" },
+  };
+
+  if (!lang || !supportedLanguages.includes(lang)) {
+    lang = "en";
     localStorage.setItem("lang", "en");
   }
 
-  if (lang === "fa") {
-    document.getElementById("content_wrapper").classList.add("rtl_wrapper");
-    if (
-      document.getElementById("languageIcon") &&
-      document.getElementById("languageText")
-    ) {
-      document.getElementById("languageIcon").src =
-        "../assets/images/icons/en.png";
-      document.getElementById("languageText").innerText = "EN";
-    }
-  } else {
-    document.getElementById("content_wrapper").classList.add("ltr_wrapper");
-    if (
-      document.getElementById("languageIcon") &&
-      document.getElementById("languageText")
-    ) {
-      document.getElementById("languageIcon").src =
-        "../assets/images/icons/ir.png";
-      document.getElementById("languageText").innerText = "FA";
-    }
+  document.getElementById("content_wrapper").classList.add("ltr_wrapper");
+
+  const nextLanguage =
+    languageOrder[(languageOrder.indexOf(lang) + 1) % languageOrder.length];
+
+  if (
+    document.getElementById("languageIcon") &&
+    document.getElementById("languageText")
+  ) {
+    document.getElementById("languageIcon").src =
+      languageMeta[nextLanguage].icon;
+    document.getElementById("languageText").innerText =
+      languageMeta[nextLanguage].label;
   }
 
   // Home page data
@@ -69,16 +71,21 @@ $(document).ready(function () {
   };
 
   function homeData() {
-    document.getElementById("page_title").innerText =
-      lang === "en" ? enHomePageData.name : faHomePageData.name;
+    const homePageData = {
+      en: enHomePageData,
+      kr: krHomePageData,
+      jp: jpHomePageData,
+    };
+    const activeHomeData = homePageData[lang] || enHomePageData;
+
+    document.getElementById("page_title").innerText = activeHomeData.name;
 
     document.getElementById("home_image").src = home_data.image
       ? home_data.image
       : "";
-    document.getElementById("home_name").innerText =
-      lang === "en" ? enHomePageData.name : faHomePageData.name;
+    document.getElementById("home_name").innerText = activeHomeData.name;
     document.getElementById("home_job_title").innerText =
-      lang === "en" ? enHomePageData.jobTitle : faHomePageData.jobTitle;
+      activeHomeData.jobTitle;
     document.getElementById("home_links").innerHTML = home_data.links
       .filter((item) => item.active)
       .map(
@@ -90,9 +97,9 @@ $(document).ready(function () {
       .join("");
 
     document.getElementById("home_title").innerText =
-      lang === "en" ? enHomePageData.home_title : faHomePageData.home_title;
+      activeHomeData.home_title;
     document.getElementById("home_content").innerHTML =
-      lang === "en" ? enHomePageData.home_content : faHomePageData.home_content;
+      activeHomeData.home_content;
   }
 
   if (pathname === "/" || pathname === "/index") {
@@ -101,6 +108,13 @@ $(document).ready(function () {
 
   // Publications page data
   const setPublicationData = (id, data) => {
+    const uiLabels = {
+      en: { view: "View", github: "Github" },
+      kr: { view: "보기", github: "깃허브" },
+      jp: { view: "表示", github: "GitHub" },
+    };
+    const activeLabels = uiLabels[lang] || uiLabels.en;
+
     document.getElementById(id).innerHTML = data
       .map(
         (publication) =>
@@ -123,7 +137,7 @@ $(document).ready(function () {
             publication.link &&
             `<li>
                 <a href=${publication.link} target="_blank"> ${
-              lang === "en" ? "View" : " مشاهده"
+              activeLabels.view
             } </a>
               </li>`
           }
@@ -131,7 +145,7 @@ $(document).ready(function () {
               publication.github &&
               `<li>
                   <a href=${publication.github} target="_blank">  ${
-                lang === "en" ? "Github" : "گیت‌هاب"
+                activeLabels.github
               }</a>
                 </li>`
             }
@@ -144,55 +158,44 @@ $(document).ready(function () {
   };
 
   function publicationsData() {
+    const publicationsPageData = {
+      en: enPublicationsPageData,
+      kr: krPublicationsPageData,
+      jp: jpPublicationsPageData,
+    };
+    const activePublicationsData =
+      publicationsPageData[lang] || enPublicationsPageData;
+    const pageTitles = {
+      en: "Publications",
+      kr: "출판물",
+      jp: "出版物",
+    };
+
     document.getElementById("page_title").innerText =
-      lang === "en" ? "Publications" : "مقالات";
+      pageTitles[lang] || pageTitles.en;
 
     document.getElementById("publications_type_one_title").innerHTML =
-      lang === "en"
-        ? enPublicationsPageData.type_one_title
-        : faPublicationsPageData.type_one_title;
+      activePublicationsData.type_one_title;
 
     setPublicationData(
       "publications_type_one_data",
-      lang === "en"
-        ? enPublicationsPageData.type_one_items
-        : faPublicationsPageData.type_one_items
+      activePublicationsData.type_one_items
     );
 
     document.getElementById("publications_type_two_title").innerHTML =
-      lang === "en"
-        ? enPublicationsPageData.type_two_title
-        : faPublicationsPageData.type_two_title;
+      activePublicationsData.type_two_title;
 
     setPublicationData(
       "publications_type_two_data",
-      lang === "en"
-        ? enPublicationsPageData.type_two_items
-        : faPublicationsPageData.type_two_items
+      activePublicationsData.type_two_items
     );
 
     document.getElementById("publications_type_three_title").innerHTML =
-      lang === "en"
-        ? enPublicationsPageData.type_three_title
-        : faPublicationsPageData.type_three_title;
+      activePublicationsData.type_three_title;
 
     setPublicationData(
       "publications_type_three_data",
-      lang === "en"
-        ? enPublicationsPageData.type_three_items
-        : faPublicationsPageData.type_three_items
-    );
-
-    document.getElementById("publications_type_four_title").innerHTML =
-      lang === "en"
-        ? enPublicationsPageData.type_four_title
-        : faPublicationsPageData.type_four_title;
-
-    setPublicationData(
-      "publications_type_four_data",
-      lang === "en"
-        ? enPublicationsPageData.type_four_items
-        : faPublicationsPageData.type_four_items
+      activePublicationsData.type_three_items
     );
   }
 
@@ -202,13 +205,25 @@ $(document).ready(function () {
 
   // Research page data
   function researchData() {
+    const researchPageData = {
+      en: enResearchPageData,
+      kr: krResearchPageData,
+      jp: jpResearchPageData,
+    };
+    const activeResearchData = researchPageData[lang] || enResearchPageData;
+    const pageTitles = {
+      en: "Research",
+      kr: "연구",
+      jp: "研究",
+    };
+
     document.getElementById("page_title").innerText =
-      lang === "en" ? "Research" : "تحقیقات";
+      pageTitles[lang] || pageTitles.en;
 
     document.getElementById("research_title").innerHTML =
-      lang === "en" ? enResearchPageData.title : faResearchPageData.title;
+      activeResearchData.title;
     document.getElementById("research_data").innerHTML =
-      lang === "en" ? enResearchPageData.content : faResearchPageData.content;
+      activeResearchData.content;
   }
 
   if (pathname === "/research") {
@@ -217,26 +232,40 @@ $(document).ready(function () {
 
   // Jobs page data
   function jobsData() {
+    const jobsPageData = {
+      en: enJobsPageData,
+      kr: krJobsPageData,
+      jp: jpJobsPageData,
+    };
+    const activeJobsData = jobsPageData[lang] || enJobsPageData;
+    const pageTitles = {
+      en: "Jobs",
+      kr: "경력",
+      jp: "職歴",
+    };
+    const nowLabels = {
+      en: "Now",
+      kr: "현재",
+      jp: "現在",
+    };
+
     document.getElementById("page_title").innerText =
-      lang === "en" ? "Jobs" : " سوابق شغلی ";
+      pageTitles[lang] || pageTitles.en;
 
-    document.getElementById("jobs_title").innerHTML =
-      lang === "en" ? enJobsPageData.title : faJobsPageData.title;
+    document.getElementById("jobs_title").innerHTML = activeJobsData.title;
 
-    document.getElementById("jobs_data").innerHTML = (
-      lang === "en" ? enJobsPageData.items : faJobsPageData.items
-    )
+    document.getElementById("jobs_data").innerHTML = activeJobsData.items
       .map(
         (job) =>
           `<div class='job_item'>
             <div class='job_header'>
               <div>
-                <h1>${job.title}${lang === "en" ? "," : "،"}</h1>
+                <h1>${job.title},</h1>
                 <h2> ${job.company}</h2>
               </div>
               <div>
                 <span>${job.startData} - ${
-            job.endDate ? job.endDate : lang === "en" ? "Now" : " تاکنون "
+            job.endDate ? job.endDate : nowLabels[lang] || nowLabels.en
           }</span>
                 <span class='job_location'>${job.location}</span>
               </div>
@@ -264,12 +293,23 @@ $(document).ready(function () {
 
   // Contact page data
   const contact_data = {
-    contact_title: lang === "en" ? "Contact" : "ارتباط با من",
+    contact_title:
+      (lang === "en" && "Contact") ||
+      (lang === "kr" && "연락처") ||
+      (lang === "jp" && "連絡先") ||
+      "Contact",
     contact_items: [
       {
         img: "../assets/images/icons/location.png",
-        title: lang === "en" ? globalData.enAddress : globalData.faAddress,
-        active: globalData.enAddress || globalData.faAddress ? true : false,
+        title:
+          (lang === "en" && globalData.enAddress) ||
+          (lang === "kr" && globalData.krAddress) ||
+          (lang === "jp" && globalData.jpAddress) ||
+          globalData.enAddress,
+        active:
+          globalData.enAddress || globalData.krAddress || globalData.jpAddress
+            ? true
+            : false,
       },
       {
         img: "../assets/images/icons/phone.png",
