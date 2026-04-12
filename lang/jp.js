@@ -1,30 +1,44 @@
 // ---------- Navbar titles
 const jpNavbarData = {
-  title: "あなたの名前",
+  title: "YoungWoo Kim",
   Home: "ホーム",
-  publications: "出版物",
+  publications: "業績",
   Research: "研究",
-  Jobs: "職歴",
+  Jobs: "経歴",
   Contact: "連絡先",
 };
 
 // ---------- Home page data
 const jpHomePageData = {
-  name: "あなたの名前",
-  jobTitle: "職種",
-  home_title: "自己紹介",
+  name: "YoungWoo Kim",
+  jobTitle: "Ph.D. Candidate in Computer Engineering",
+  home_title: "Profile",
   home_content: `
   <div>
-    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.
-      ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <p>
+      I am a Ph.D. candidate in Computer Engineering at KOREATECH and a member of the SPIN Lab. My work focuses on GPU-accelerated geometry processing, ray-tracing-core computing, proximity queries, and physically grounded 3D simulation.
     </p>
-    <h2 class='title'> Main works </h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh  </p>
+    <p>
+      Recent projects include Hausdorff distance computation, penetration depth estimation, and real-time 3D surface reconstruction for digital twin and VR/AR applications.
+    </p>
+    <h2 class='title'> Education </h2>
     <ul>
-      <li> Heuristics</li>
-      <li> Policy planning </li>
-      <li> Flexiblity to details </li>
+      <li>Ph.D. in Computer Engineering, KOREATECH, Feb 2022 - Aug 2026 (expected)</li>
+      <li>M.S. in Computer Engineering, KOREATECH, Mar 2020 - Feb 2022</li>
+      <li>B.S. in Computer Engineering, KOREATECH, Mar 2013 - Feb 2020</li>
+    </ul>
+    <h2 class='title'> Research Interests </h2>
+    <ul>
+      <li>VR/AR</li>
+      <li>3D reconstruction and digital twins</li>
+      <li>High-performance computing</li>
+      <li>Proximity queries and physical simulation</li>
+    </ul>
+    <h2 class='title'> Technical Stack </h2>
+    <ul>
+      <li>C++, CUDA, OptiX</li>
+      <li>OpenGL, Unity, mesh processing</li>
+      <li>Thrust, CGAL, OpenMVS, OpenCV</li>
     </ul>
   </div>
   `,
@@ -32,127 +46,138 @@ const jpHomePageData = {
 
 // ---------- Publications page data
 const jpPublicationsPageData = {
-  type_one_title: "ジャーナル論文",
+  type_one_title: "Journal Articles",
 
   type_one_items: [
     {
-      title: `Dancing to the beat of climate change: Studying visual frames on TikTok through the left-right divide among U.S. politicians (with ).`,
-      abstract: `Politicians across the political spectrum have taken to TikTok in an attempt to reach young voters by producing original videos. This novel trend has turned TikTok into the new polarizing ring in the political communication battle, deepening the partisan breach around issues such as climate change. However`,
-      date: "",
-      link: "http://link.com",
+      title: `RT-HDIST: Ray-Tracing Core-based Hausdorff Distance Computation.`,
+      abstract: `Computer Graphics Forum, Pacific Graphics 2025 journal track.`,
+      date: "2025",
+      link: "",
       github: "",
-      download: "",
-      writers: ["Claudio Cioffi-Revilla", "masoud Claudio "],
+      writers: ["YoungWoo Kim", "Jaehong Lee", "Duksu Kim"],
     },
     {
-      title: `“Now you are speaking my language” Language-specific transparency and legislative negotiations in the Council of Ministers of the European Union. (with ).`,
-      abstract: `Politicians across the political spectrum have taken to TikTok in an attempt to reach young voters by producing original videos. This novel trend has turned TikTok into the new polarizing ring in the political communication battle, deepening the partisan breach around issues such as climate change. However`,
-      date: "1996",
+      title: `RTPD: Penetration Depth Calculation Using Hardware-Accelerated Ray Tracing.`,
+      abstract: `The Visual Computer.`,
+      date: "2025",
       link: "",
-      github: "http://github.com",
-      writers: ["Claudio Cioffi-Revilla", ""],
+      github: "",
+      writers: ["YoungWoo Kim", "Sungmin Kwon", "Duksu Kim"],
+    },
+    {
+      title: `Real-time Lens Distortion Algorithm on an Edge Device with GPU.`,
+      abstract: `IEEE Access.`,
+      date: "2022",
+      link: "",
+      github: "",
+      writers: ["Young-Woo Kim", "Hyeon-seok Yang", "Duksu Kim"],
     },
   ],
 
-  type_two_title: "査読中",
+  type_two_title: "Posters and Proceedings",
   type_two_items: [
     {
-      title: `Elena Reinaga. 2016. If I were born again I would still be a sex worker. P. Purdy and N. Umansky. OpenDemocracy.`,
-      abstract: ``,
-      date: "1996",
+      title: `Color-Corrected Full Ray-Based Computer-Generated Holography.`,
+      abstract: `SIGGRAPH Asia 2025 Posters.`,
+      date: "2025",
       link: "",
       github: "",
-      writers: [],
+      writers: ["Jaehong Lee", "YoungWoo Kim", "Duksu Kim"],
     },
     {
-      title: `“Now you are speaking my language” Language-specific transparency and legislative negotiations in the Council of Ministers of the European Union. (with ).`,
-      abstract: `we adopt an elite-focused approach to explore the ways in which left and right-leaning American political elites differ in their visual and emotional framing of climate change. Overall, this study provides new insight into how politicians across party lines communicate about critical and polarizing political issues, such as climate change, by adapting to novel online communication channels.`,
-      date: "1996",
-      link: "http://link.com",
-      github: "http://github.com",
-      writers: ["Claudio Cioffi-Revilla", "masoud Claudio "],
+      title: `Real-time Lens Distortion Algorithm on Embedded GPU Systems.`,
+      abstract: `ACM SIGGRAPH 2022 Posters.`,
+      date: "2022",
+      link: "",
+      github: "",
+      writers: ["YoungWoo Kim", "Duksu Kim"],
     },
   ],
 
-  type_three_title: "書籍章",
+  type_three_title: "Preprints",
   type_three_items: [
     {
-      title: `Elena Reinaga. 2016. If I were born again I would still be a sex worker. P. Purdy and N. Umansky. OpenDemocracy.`,
-      abstract: ``,
-      date: "",
-      link: "",
+      title: `A Large-Depth-Range Layer-Based Hologram Dataset for Machine Learning-Based 3D Computer-Generated Holography.`,
+      abstract: `arXiv preprint arXiv:2512.21040.`,
+      date: "2025",
+      link: "https://arxiv.org/abs/2512.21040",
       github: "",
-      writers: [],
-    },
-    {
-      title: `“Now you are speaking my language” Language-specific transparency and legislative negotiations in the Council of Ministers of the European Union. (with ).`,
-      abstract: `we adopt an elite-focused approach to explore the ways in which left and right-leaning American political elites differ in their visual and emotional framing of climate change. Overall, this study provides new insight into how politicians across party lines communicate about critical and polarizing political issues, such as climate change, by adapting to novel online communication channels.`,
-      date: "1996",
-      link: "http://link.com",
-      github: "http://github.com",
-      writers: ["Claudio Cioffi-Revilla"],
+      writers: ["Jaehong Lee", "YouChan No", "YoungWoo Kim", "Duksu Kim"],
     },
   ],
 
   type_four_title: "",
-  type_four_items: [
-    {
-      title: `Elena Reinaga. 2016. If I were born again I would still be a sex worker. P. Purdy and N. Umansky. OpenDemocracy.`,
-      abstract: ``,
-      date: "",
-      link: "",
-      github: "",
-      writers: [],
-    },
-    {
-      title: `“Now you are speaking my language” Language-specific transparency and legislative negotiations in the Council of Ministers of the European Union. (with ).`,
-      abstract: `we adopt an elite-focused approach to explore the ways in which left and right-leaning American political elites differ in their visual and emotional framing of climate change. Overall, this study provides new insight into how politicians across party lines communicate about critical and polarizing political issues, such as climate change, by adapting to novel online communication channels.`,
-      date: "1996",
-      link: "http://link.com",
-      github: "http://github.com",
-      writers: ["Claudio Cioffi-Revilla"],
-    },
-  ],
+  type_four_items: [],
 };
 
 // ---------- Research page data
 const jpResearchPageData = {
-  title: "研究",
+  title: "Research",
   content: `
     <div class='research_content'>
-        <p> My research goal is to combine the three major sub-fields of the Computational Social Science, including Social Media Data Analysis, Network Analysis, and Agent-based Modeling, to study various social science problems. Below you can find a summary of my past and current projects.</p>
-        <br />
-        <h4 style="font-size: 1.1rem "> Identifying and Characterizing US Domestic Ideological Extremists </h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Dictum varius duis at consectetur lorem. Nisi vitae suscipit tellus mauris a diam maecenas sed enim. Velit ut tortor pretium viverra suspendisse potenti nullam. Et molestie ac feugiat sed lectus. Non nisi est sit amet facilisis magna. Dignissim diam quis enim lobortis scelerisque fermentum. Odio ut enim blandit volutpat maecenas volutpat. Ornare lectus sit amet est placerat in egestas erat. Nisi vitae suscipit tellus mauris a diam maecenas sed. Placerat duis ultricies lacus sed turpis tincidunt id aliquet.</p>
-        <img src='../files/images/research.png' />
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra  accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat <br /> imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus. Mattis pellentesque id nibh tortor id aliquet <br /> lectus proin. Sapien faucibus et molestie ac feugiat sed lectus vestibulum. Ullamcorper velit sed ullamcorper morbi tincidunt ornare massa eget. Dictum varius duis at consectetur lorem. Nisi vitae suscipit tellus mauris a diam maecenas sed enim. Velit ut tortor pretium viverra suspendisse potenti nullam. Et molestie ac feugiat sed lectus. Non nisi est sit amet facilisis magna. Dignissim diam quis enim lobortis scelerisque fermentum. Odio ut enim blandit volutpat maecenas volutpat. Ornare lectus sit amet est placerat in egestas erat. Nisi vitae suscipit tellus mauris a diam maecenas sed. Placerat duis ultricies lacus sed turpis tincidunt id aliquet.</p>
+      <p>
+        My research focuses on accelerating geometric computation with ray tracing cores and parallel GPU processing. I work on methods for Hausdorff distance, penetration depth, and reconstruction pipelines for simulation, digital twins, and immersive computing.
+      </p>
+      <br />
+      <h4 style="font-size: 1.1rem">RT-HDIST</h4>
+      <p>
+        A GPU-based Hausdorff distance pipeline built on BVH traversal, nearest-neighbor search, and CUDA/OptiX implementation. The system reported a 334.87x speedup over the CPU baseline.
+      </p>
+      <br />
+      <h4 style="font-size: 1.1rem">RTRecons</h4>
+      <p>
+        Ongoing work on GPU-accelerated 3D surface reconstruction using ray marching, ray-triangle intersection, and Delaunay-tetrahedral graph processing. Internal evaluation showed a 52.11x speedup over an OpenMVS CPU baseline.
+      </p>
+      <br />
+      <h4 style="font-size: 1.1rem">RTPD</h4>
+      <p>
+        Hardware-accelerated penetration depth computation for collision-aware simulation. The method achieved a 37.66x speedup over the CPU version and a 5.33x speedup over a previous GPU baseline.
+      </p>
     </div>
   `,
 };
 
 // ---------- Jobs page data
 const jpJobsPageData = {
-  title: "職歴",
+  title: "Experience",
   items: [
     {
-      title: `Job title`,
-      company: "Company name",
-      startData: "20 April 2019",
-      endDate: "20 April 2022",
-      location: "Berlin",
+      title: `Researcher / Graduate Research Assistant`,
+      company: "KOREATECH SPIN Lab",
+      startData: "Mar 2020",
+      endDate: "",
+      location: "Cheonan, Republic of Korea",
       abstract:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus.",
-      achievements: ["achievement 1", "achievement 2", "achievement 3"],
+        "Research on GPU computing, ray-tracing-core acceleration, geometric proximity queries, and 3D reconstruction.",
+      achievements: [
+        "Led RT-HDIST and published the work in Computer Graphics Forum.",
+        "Developed RTPD for hardware-accelerated penetration depth computation.",
+        "Built GPU reconstruction pipelines with CUDA, OptiX, Thrust, and CGAL.",
+      ],
     },
     {
-      title: `Job title`,
-      company: "Company name",
-      startData: "20 April 2019",
-      endDate: "",
-      location: "Berlin",
+      title: `Part-time Lecturer`,
+      company: "KOREATECH",
+      startData: "Spring 2024",
+      endDate: "Fall 2025",
+      location: "Cheonan, Republic of Korea",
       abstract:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Egestas purus viverra accumsan in nisl nisi. Arcu cursus vitae congue mauris rhoncus aenean vel elit scelerisque. In egestas erat imperdiet sed euismod nisi porta lorem mollis. Morbi tristique senectus et netus.",
-      achievements: ["achievement 1", "achievement 2"],
+        "Taught undergraduate courses while continuing doctoral research.",
+      achievements: ["Served in Spring 2024.", "Served again in Fall 2025."],
+    },
+    {
+      title: `Teaching Assistant`,
+      company: "KOREATECH",
+      startData: "Fall 2020",
+      endDate: "Fall 2023",
+      location: "Cheonan, Republic of Korea",
+      abstract:
+        "Supported exercises and course operations for core computer engineering classes.",
+      achievements: [
+        "Worked across multiple semesters from 2020 to 2023.",
+        "Supported C Programming II and graphics-related courses.",
+      ],
     },
   ],
 };

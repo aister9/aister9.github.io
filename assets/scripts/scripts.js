@@ -197,6 +197,29 @@ $(document).ready(function () {
       "publications_type_three_data",
       activePublicationsData.type_three_items
     );
+
+    if (document.getElementById("publications_type_four_title")) {
+      const fourthTitle = document.getElementById("publications_type_four_title");
+      const fourthData = document.getElementById("publications_type_four_data");
+      const hasFourthSection =
+        activePublicationsData.type_four_title ||
+        (activePublicationsData.type_four_items &&
+          activePublicationsData.type_four_items.length > 0);
+
+      fourthTitle.innerHTML = activePublicationsData.type_four_title || "";
+
+      if (hasFourthSection) {
+        setPublicationData(
+          "publications_type_four_data",
+          activePublicationsData.type_four_items
+        );
+        fourthTitle.style.display = "";
+        fourthData.style.display = "";
+      } else {
+        fourthTitle.style.display = "none";
+        fourthData.style.display = "none";
+      }
+    }
   }
 
   if (pathname === "/publications") {
@@ -239,9 +262,9 @@ $(document).ready(function () {
     };
     const activeJobsData = jobsPageData[lang] || enJobsPageData;
     const pageTitles = {
-      en: "Jobs",
+      en: "Experience",
       kr: "경력",
-      jp: "職歴",
+      jp: "Experience",
     };
     const nowLabels = {
       en: "Now",
