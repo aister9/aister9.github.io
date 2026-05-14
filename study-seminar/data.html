@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study & Seminar Timeline — 김영우</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Gowun+Batang:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0c0c0c;
+    --bg2: #141414;
+    --bg3: #1c1c1c;
+    --line: rgba(255,255,255,0.07);
+    --line2: rgba(255,255,255,0.13);
+    --text: #e8e6e0;
+    --muted: #888780;
+    --muted2: #555450;
+    --accent-gpu:    #3b82f6;
+    --accent-3d:     #10b981;
+    --accent-rt:     #8b5cf6;
+    --accent-render: #f97316;
+    --accent-lidar:  #eab308;
+    --accent-misc:   #6b7280;
+    --font-display: 'Gowun Batang', serif;
+    --font-mono: 'DM Mono', monospace;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(12,12,12,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 0.5px solid var(--line2);
+    padding: 0 2rem;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-logo {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--muted);
+    letter-spacing: .06em;
+  }
+  .header-logo strong { color: var(--text); font-weight: 500; }
+  .header-info {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted2);
+    letter-spacing: .04em;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 5rem 2rem 3.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .hero-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted2);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 1rem;
+  }
+  .hero-sub {
+    font-size: 14px;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+  }
+
+  /* ── Stats bar ── */
+  .stats-bar {
+    display: flex;
+    gap: 0;
+    border: 0.5px solid var(--line2);
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 2.5rem auto 0;
+    max-width: 860px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+  @media (min-width: 860px) {
+    .stats-bar { margin-left: auto; margin-right: auto; }
+  }
+  .stat-item {
+    flex: 1;
+    padding: 1rem 1.25rem;
+    border-right: 0.5px solid var(--line2);
+    background: var(--bg2);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--font-mono);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text);
+    display: block;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: var(--muted2);
+    margin-top: 2px;
+    display: block;
+  }
+
+  /* ── Layout ── */
+  .main-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  @media (max-width: 760px) {
+    .main-layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+  }
+
+  /* ── Sidebar ── */
+  .sidebar {
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    border-right: 0.5px solid var(--line);
+    padding: 2rem 1.5rem;
+    scrollbar-width: none;
+  }
+  .sidebar::-webkit-scrollbar { display: none; }
+  .sidebar-section { margin-bottom: 2rem; }
+  .sidebar-title {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted2);
+    margin-bottom: .75rem;
+  }
+
+  .cat-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--font-body);
+    font-size: 13px;
+    cursor: pointer;
+    text-align: left;
+    transition: all .15s;
+    margin-bottom: 2px;
+  }
+  .cat-btn:hover { background: var(--bg3); color: var(--text); }
+  .cat-btn.active { background: var(--bg3); color: var(--text); }
+  .cat-dot {
+    width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  }
+  .cat-count {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted2);
+  }
+
+  .year-nav-item {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted2);
+    text-decoration: none;
+    padding: 3px 8px;
+    border-radius: 4px;
+    transition: all .15s;
+  }
+  .year-nav-item:hover { color: var(--text); background: var(--bg3); }
+
+  /* ── Timeline content ── */
+  .timeline-content {
+    padding: 0 2rem 6rem;
+  }
+
+  .year-group {
+    padding-top: 3rem;
+    opacity: 1;
+    transition: opacity .3s;
+  }
+  .year-group.hidden { display: none; }
+
+  .year-heading {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    padding-bottom: .75rem;
+    border-bottom: 0.5px solid var(--line);
+  }
+  .year-num {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .year-count {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted2);
+  }
+
+  .paper-card {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 0 16px;
+    padding: 14px 0;
+    border-bottom: 0.5px solid var(--line);
+    cursor: default;
+    transition: background .15s;
+    border-radius: 4px;
+    margin: 0 -8px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .paper-card:hover { background: var(--bg3); }
+  .paper-card.filtered-out { display: none; }
+
+  .paper-date {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted2);
+    padding-top: 3px;
+    line-height: 1.4;
+  }
+  .paper-date .month { display: block; }
+  .paper-date .day { display: block; color: var(--muted2); opacity: .6; }
+
+  .paper-body { min-width: 0; }
+
+  .paper-title {
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 5px;
+  }
+
+  .paper-footer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .venue-tag {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--muted2);
+  }
+  .cat-tag {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: .03em;
+    color: var(--bg);
+    font-weight: 500;
+  }
+  /* ── Search ── */
+  .search-wrap {
+    padding: 1.5rem 2rem 0;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .search-input {
+    width: 100%;
+    max-width: 400px;
+    background: var(--bg2);
+    border: 0.5px solid var(--line2);
+    border-radius: 6px;
+    padding: 8px 14px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text);
+    outline: none;
+    transition: border-color .15s;
+  }
+  .search-input:focus { border-color: rgba(255,255,255,0.25); }
+  .search-input::placeholder { color: var(--muted2); }
+
+  /* ── Mobile filters ── */
+  .mobile-filters {
+    display: none;
+    gap: 6px;
+    flex-wrap: wrap;
+    padding: 1rem 2rem 0;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  @media (max-width: 760px) {
+    .mobile-filters { display: flex; }
+  }
+  .mobile-cat-btn {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 0.5px solid var(--line2);
+    background: var(--bg2);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s;
+    font-family: var(--font-body);
+  }
+  .mobile-cat-btn.active {
+    color: var(--bg);
+    border-color: transparent;
+  }
+
+  /* ── No results ── */
+  .no-results {
+    display: none;
+    padding: 3rem 0;
+    text-align: center;
+    color: var(--muted2);
+    font-family: var(--font-mono);
+    font-size: 13px;
+  }
+  .no-results.visible { display: block; }
+
+  /* ── Scrollbar ── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--line2); border-radius: 2px; }
+
+  /* ── Fade-in on load ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .year-group { animation: fadeUp .35s ease both; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-logo"><strong>김영우</strong> &nbsp;/ Study & Seminar Timeline</div>
+  <div class="header-info">HPC Lab → SPIN Lab, KOREATECH</div>
+</header>
+
+<div class="hero">
+  <div class="hero-tag">Paper Seminar Archive</div>
+  <h1>연구 논문 세미나<br>타임라인</h1>
+  <p class="hero-sub">석박사 과정 동안 진행한 논문 세미나 및 스터디 아카이브. GPU 병렬처리, 3D 재건, Ray Tracing 응용, 렌더링, LiDAR/로보틱스 분야의 주요 논문을 읽고 정리한 기록입니다.</p>
+</div>
+
+<div class="stats-bar" id="stats-bar">
+  <!-- filled by JS -->
+</div>
+
+<div class="search-wrap">
+  <input class="search-input" type="text" id="search" placeholder="논문 제목, 학회명 검색..." autocomplete="off">
+</div>
+
+<div class="mobile-filters" id="mobile-filters"></div>
+
+<div class="main-layout">
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-title">주제 분야</div>
+      <div id="cat-filters"></div>
+    </div>
+    <div class="sidebar-section">
+      <div class="sidebar-title">진행 연도</div>
+      <div id="year-nav"></div>
+    </div>
+  </aside>
+
+  <main class="timeline-content" id="timeline"></main>
+</div>
+
+<script>
+const CAT = {
+  all:    { label: '전체',          color: '#888780' },
+  gpu:    { label: 'GPU 병렬처리',  color: '#3b82f6' },
+  '3d':   { label: '3D 재건 / 포인트클라우드', color: '#10b981' },
+  rt:     { label: 'Ray Tracing 응용', color: '#8b5cf6' },
+  render: { label: '렌더링 / 시각화', color: '#f97316' },
+  lidar:  { label: 'LiDAR / 로보틱스', color: '#eab308' },
+  misc:   { label: '기타',          color: '#6b7280' },
+};
+
+const PAPERS = [
+  { date:'2020-06-11', cat:'misc',   venue:'IEEE TVCG 2017',    title:'Dynamic Projection Mapping onto Deforming Non-Rigid Surface Using Deformable Dot Cluster Marker' },
+  { date:'2020-08-12', cat:'misc',   venue:'CHI 2019',          title:'ARPen: Mid-Air Object Manipulation Techniques for a Bimanual AR System with Pen & Smartphone' },
+  { date:'2020-09-28', cat:'3d',     venue:'ICRA 2013',         title:'Robust real-time visual odometry for dense RGB-D mapping' },
+  { date:'2020-09-29', cat:'misc',   venue:'대한경영학회지 2017', title:'정보화 프로젝트 PMO의 성과관리 (의료·금융·IT/SI 산업)' },
+  { date:'2020-10-12', cat:'gpu',    venue:'JPDC 2019',         title:'Efficient parallel optimizations of a high-performance SIFT on GPUs' },
+  { date:'2020-10-20', cat:'misc',   venue:'정보처리학회지 1998', title:'객체지향 소프트웨어 개발방법론의 표준화' },
+  { date:'2020-11-09', cat:'gpu',    venue:'MICRO 2019',        title:'Distilling the essence of raw video to reduce memory usage and energy at edge devices' },
+  { date:'2020-11-10', cat:'gpu',    venue:'ACM TACO 2020',     title:'GPU Fast Convolution via the Overlap-and-Save Method in Shared Memory' },
+  { date:'2021-01-20', cat:'gpu',    venue:'JRTIP 2020',        title:'GPGPU Acceleration of the KAZE Image Feature Extraction Algorithm' },
+  { date:'2021-03-31', cat:'gpu',    venue:'PRL 2020',          title:'GPU based parallel optimization for real time panoramic video stitching' },
+  { date:'2021-06-02', cat:'3d',     venue:'OLT 2019',          title:'GPU-accelerated feature tracking for 3D reconstruction' },
+  { date:'2021-07-28', cat:'3d',     venue:'MMSys 2021',        title:'Open3DGen: Open-Source Software for Reconstructing Textured 3D Models from RGB-D Images' },
+  { date:'2021-09-01', cat:'3d',     venue:'SGP 2006',          title:'Poisson surface reconstruction' },
+  { date:'2021-11-03', cat:'3d',     venue:'ICIMCS 2015',       title:'Parallel surface reconstruction on GPU' },
+  { date:'2022-02-09', cat:'3d',     venue:'ICCV Workshop 2011',title:'Direct Iterative Closest Point for Real-time Visual Odometry' },
+  { date:'2022-04-06', cat:'3d',     venue:'CAGD 2021',         title:'A visibility-based surface reconstruction method on the GPU' },
+  { date:'2022-05-22', cat:'render', venue:'ICIP 2019',         title:'Photorealistic Image Synthesis for Object Instance Detection' },
+  { date:'2022-08-03', cat:'3d',     venue:'VCIA 2019',         title:'Scalable point cloud meshing for image-based large-scale 3D modeling' },
+  { date:'2022-10-05', cat:'rt',     venue:'HPG 2019',          title:'RTX Beyond Ray Tracing: Exploring the Use of Hardware Ray Tracing Cores for Tet-Mesh Point Location' },
+  { date:'2022-12-27', cat:'rt',     venue:'기술 세미나',        title:'Introduction to Nvidia OptiX' },
+  { date:'2023-02-07', cat:'rt',     venue:'IEEE VIS 2022',     title:'Quick Clusters: A GPU-Parallel Partitioning for Efficient Path Tracing of Unstructured Volumetric Grids' },
+  { date:'2023-05-10', cat:'rt',     venue:'IPDPS 2023',        title:'RT-DBSCAN: Accelerating DBSCAN using Ray Tracing Hardware' },
+  { date:'2023-07-18', cat:'rt',     venue:'FGCS 2024',         title:'Accelerating Range Minimum Queries with Ray Tracing Cores (RTXRMQ)' },
+  { date:'2023-10-11', cat:'render', venue:'기술 세미나',        title:'Physical-Based Differentiable Rendering' },
+  { date:'2023-12-13', cat:'rt',     venue:'IEEE TVCG 2023',    title:'Attribute-Aware RBFs: Interactive Visualization of Time Series Particle Volumes Using RT Core Range Queries' },
+  { date:'2024-01-31', cat:'rt',     venue:'저널 논문',          title:'Ray tracing method with implicit surface detection for SPH-based laser beam welding simulations' },
+  { date:'2024-04-09', cat:'lidar',  venue:'ICRA 2021',         title:'Voxelized GICP for fast and accurate 3D point cloud registration' },
+  { date:'2024-05-28', cat:'3d',     venue:'ACM CGIT',          title:'SimLOD: Simultaneous LOD Generation and Rendering for Point Clouds' },
+  { date:'2024-07-29', cat:'rt',     venue:'ICS 2024',          title:'Arkade: k-Nearest Neighbor Search With Non-Euclidean Distances using GPU Ray Tracing' },
+  { date:'2024-08-26', cat:'render', venue:'IEEE TVCG 2023',    title:'Adaptive Joint Optimization for 3D Reconstruction with Differentiable Rendering' },
+  { date:'2025-03-14', cat:'lidar',  venue:'IROS 2017',         title:'Voxblox: Incremental 3D Euclidean Signed Distance Fields for On-Board MAV Planning' },
+  { date:'2025-05-23', cat:'lidar',  venue:'ICRA 2024',         title:'nvblox: GPU-accelerated Incremental Signed Distance Field Mapping' },
+  { date:'2025-08-13', cat:'rt',     venue:'IEEE VIS 2021',     title:'Ray-traced Shell Traversal of Tetrahedral Meshes for Direct Volume Visualization' },
+  { date:'2025-11-10', cat:'3d',     venue:'IROS 2019',         title:'GPU Accelerated Robust Scene Reconstruction' },
+  { date:'2026-03-19', cat:'lidar',  venue:'CoRL 2024',         title:'Physically Embodied Gaussian Splatting: A Visually Learnt and Physically Grounded 3D Representation for Robotics' },
+  { date:'2026-04-30', cat:'lidar',  venue:'CVPR 2025',         title:'LiDAR-RT: Gaussian-based Ray Tracing for Dynamic LiDAR Re-simulation' },
+];
+
+// ── State ──
+let activeCat = 'all';
+let searchQuery = '';
+
+// ── Group by year ──
+const byYear = {};
+PAPERS.forEach(p => {
+  const y = p.date.slice(0, 4);
+  if (!byYear[y]) byYear[y] = [];
+  byYear[y].push(p);
+});
+const years = Object.keys(byYear).sort();
+
+// ── Count per category ──
+const catCounts = {};
+Object.keys(CAT).forEach(k => catCounts[k] = 0);
+catCounts.all = PAPERS.length;
+PAPERS.forEach(p => { catCounts[p.cat] = (catCounts[p.cat] || 0) + 1; });
+
+// ── Stats bar ──
+(function buildStats() {
+  const bar = document.getElementById('stats-bar');
+  const items = [
+    { num: PAPERS.length, label: '총 세미나' },
+    { num: years.length,  label: '진행 연도' },
+    { num: Object.keys(CAT).length - 1, label: '주제 분야' },
+  ];
+  bar.innerHTML = items.map(i =>
+    `<div class="stat-item"><span class="stat-num">${i.num}</span><span class="stat-label">${i.label}</span></div>`
+  ).join('');
+})();
+
+// ── Sidebar category filters ──
+(function buildCatFilters() {
+  const el = document.getElementById('cat-filters');
+  el.innerHTML = Object.entries(CAT).map(([key, val]) =>
+    `<button class="cat-btn${key==='all'?' active':''}" data-cat="${key}" onclick="setCategory('${key}')">
+      <span class="cat-dot" style="background:${val.color}"></span>
+      <span>${val.label}</span>
+      <span class="cat-count">${catCounts[key]||0}</span>
+    </button>`
+  ).join('');
+})();
+
+// ── Mobile filters ──
+(function buildMobileFilters() {
+  const el = document.getElementById('mobile-filters');
+  el.innerHTML = Object.entries(CAT).map(([key, val]) =>
+    `<button class="mobile-cat-btn${key==='all'?' active':''}" data-cat="${key}"
+      style="${key==='all'?'':''}${key!=='all'?''  :''}"
+      onclick="setCategory('${key}')">${val.label}</button>`
+  ).join('');
+})();
+
+// ── Year nav ──
+(function buildYearNav() {
+  const el = document.getElementById('year-nav');
+  el.innerHTML = years.map(y =>
+    `<a class="year-nav-item" href="#year-${y}">${y}</a>`
+  ).join('');
+})();
+
+// ── Timeline ──
+function buildTimeline() {
+  const tl = document.getElementById('timeline');
+  tl.innerHTML = '';
+
+  let totalVisible = 0;
+
+  years.forEach((year, yi) => {
+    const group = document.createElement('div');
+    group.className = 'year-group';
+    group.id = `year-${year}`;
+    group.style.animationDelay = `${yi * 40}ms`;
+
+    const monthNames = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+    const papers = byYear[year];
+    const cardsHTML = papers.map(p => {
+      const d = new Date(p.date);
+      const mon = monthNames[d.getMonth()];
+      const day = String(d.getDate()).padStart(2,'0');
+      const catInfo = CAT[p.cat];
+
+      return `<div class="paper-card" data-cat="${p.cat}" data-title="${p.title.toLowerCase()}" data-venue="${p.venue.toLowerCase()}">
+        <div class="paper-date">
+          <span class="month">${mon}</span>
+          <span class="day">${day}</span>
+        </div>
+        <div class="paper-body">
+          <div class="paper-title">${p.title}</div>
+          <div class="paper-footer">
+            <span class="venue-tag">${p.venue}</span>
+            <span class="cat-tag" style="background:${catInfo.color}">${catInfo.label}</span>
+          </div>
+        </div>
+      </div>`;
+    }).join('');
+
+    group.innerHTML = `
+      <div class="year-heading">
+        <span class="year-num">${year}</span>
+        <span class="year-count" id="yc-${year}">${papers.length}편</span>
+      </div>
+      ${cardsHTML}
+    `;
+
+    tl.appendChild(group);
+  });
+
+  applyFilters();
+}
+
+// ── Filter logic ──
+function applyFilters() {
+  const q = searchQuery.trim().toLowerCase();
+  let totalVisible = 0;
+
+  years.forEach(year => {
+    const group = document.getElementById(`year-${year}`);
+    if (!group) return;
+    const cards = group.querySelectorAll('.paper-card');
+    let yearVisible = 0;
+
+    cards.forEach(card => {
+      const catMatch = activeCat === 'all' || card.dataset.cat === activeCat;
+      const titleMatch = !q || card.dataset.title.includes(q) || card.dataset.venue.includes(q);
+      const show = catMatch && titleMatch;
+      card.classList.toggle('filtered-out', !show);
+      if (show) yearVisible++;
+    });
+
+    const yc = document.getElementById(`yc-${year}`);
+    if (yc) yc.textContent = yearVisible + '편';
+    group.classList.toggle('hidden', yearVisible === 0);
+    totalVisible += yearVisible;
+  });
+
+  let noRes = document.getElementById('no-results');
+  if (!noRes) {
+    noRes = document.createElement('div');
+    noRes.id = 'no-results';
+    noRes.className = 'no-results';
+    noRes.textContent = '검색 결과가 없습니다.';
+    document.getElementById('timeline').appendChild(noRes);
+  }
+  noRes.classList.toggle('visible', totalVisible === 0);
+}
+
+function setCategory(cat) {
+  activeCat = cat;
+
+  // sidebar
+  document.querySelectorAll('#cat-filters .cat-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.cat === cat));
+  // mobile
+  document.querySelectorAll('.mobile-cat-btn').forEach(b => {
+    const isActive = b.dataset.cat === cat;
+    b.classList.toggle('active', isActive);
+    const color = CAT[b.dataset.cat]?.color || '#888';
+    b.style.background = isActive ? color : '';
+    b.style.color = isActive ? '#0c0c0c' : '';
+    b.style.borderColor = isActive ? color : '';
+  });
+
+  applyFilters();
+}
+
+document.getElementById('search').addEventListener('input', e => {
+  searchQuery = e.target.value;
+  applyFilters();
+});
+
+buildTimeline();
+</script>
+</body>
+</html>

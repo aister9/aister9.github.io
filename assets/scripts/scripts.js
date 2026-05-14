@@ -1,35 +1,7 @@
-var lang = localStorage.getItem("lang");
 var pathname = window.location.pathname.replace(".html", "");
 
 $(document).ready(function () {
-  // ---------- Language Handler
-  const supportedLanguages = ["en", "kr", "jp"];
-  const languageOrder = ["en", "kr", "jp"];
-  const languageMeta = {
-    en: { label: "EN", icon: "../assets/images/icons/en.png" },
-    kr: { label: "KR", icon: "../assets/images/icons/en.png" },
-    jp: { label: "JP", icon: "../assets/images/icons/en.png" },
-  };
-
-  if (!lang || !supportedLanguages.includes(lang)) {
-    lang = "en";
-    localStorage.setItem("lang", "en");
-  }
-
   document.getElementById("content_wrapper").classList.add("ltr_wrapper");
-
-  const nextLanguage =
-    languageOrder[(languageOrder.indexOf(lang) + 1) % languageOrder.length];
-
-  if (
-    document.getElementById("languageIcon") &&
-    document.getElementById("languageText")
-  ) {
-    document.getElementById("languageIcon").src =
-      languageMeta[nextLanguage].icon;
-    document.getElementById("languageText").innerText =
-      languageMeta[nextLanguage].label;
-  }
 
   // Home page data
   const home_data = {
@@ -71,21 +43,14 @@ $(document).ready(function () {
   };
 
   function homeData() {
-    const homePageData = {
-      en: enHomePageData,
-      kr: krHomePageData,
-      jp: jpHomePageData,
-    };
-    const activeHomeData = homePageData[lang] || enHomePageData;
-
-    document.getElementById("page_title").innerText = activeHomeData.name;
+    document.getElementById("page_title").innerText = enHomePageData.name;
 
     document.getElementById("home_image").src = home_data.image
       ? home_data.image
       : "";
-    document.getElementById("home_name").innerText = activeHomeData.name;
+    document.getElementById("home_name").innerText = enHomePageData.name;
     document.getElementById("home_job_title").innerText =
-      activeHomeData.jobTitle;
+      enHomePageData.jobTitle;
     document.getElementById("home_links").innerHTML = home_data.links
       .filter((item) => item.active)
       .map(
@@ -96,10 +61,8 @@ $(document).ready(function () {
       )
       .join("");
 
-    document.getElementById("home_title").innerText =
-      activeHomeData.home_title;
-    document.getElementById("home_content").innerHTML =
-      activeHomeData.home_content;
+    document.getElementById("home_title").innerText = enHomePageData.home_title;
+    document.getElementById("home_content").innerHTML = enHomePageData.home_content;
   }
 
   if (pathname === "/" || pathname === "/index") {
@@ -108,13 +71,6 @@ $(document).ready(function () {
 
   // Publications page data
   const setPublicationData = (id, data) => {
-    const uiLabels = {
-      en: { view: "View", github: "Github" },
-      kr: { view: "보기", github: "깃허브" },
-      jp: { view: "表示", github: "GitHub" },
-    };
-    const activeLabels = uiLabels[lang] || uiLabels.en;
-
     document.getElementById(id).innerHTML = data
       .map(
         (publication) =>
@@ -136,17 +92,13 @@ $(document).ready(function () {
           ${
             publication.link &&
             `<li>
-                <a href=${publication.link} target="_blank"> ${
-              activeLabels.view
-            } </a>
+                <a href=${publication.link} target="_blank"> View </a>
               </li>`
           }
             ${
               publication.github &&
               `<li>
-                  <a href=${publication.github} target="_blank">  ${
-                activeLabels.github
-              }</a>
+                  <a href=${publication.github} target="_blank"> Github</a>
                 </li>`
             }
           
@@ -158,60 +110,46 @@ $(document).ready(function () {
   };
 
   function publicationsData() {
-    const publicationsPageData = {
-      en: enPublicationsPageData,
-      kr: krPublicationsPageData,
-      jp: jpPublicationsPageData,
-    };
-    const activePublicationsData =
-      publicationsPageData[lang] || enPublicationsPageData;
-    const pageTitles = {
-      en: "Publications",
-      kr: "출판물",
-      jp: "出版物",
-    };
-
-    document.getElementById("page_title").innerText =
-      pageTitles[lang] || pageTitles.en;
+    document.getElementById("page_title").innerText = "Publications";
 
     document.getElementById("publications_type_one_title").innerHTML =
-      activePublicationsData.type_one_title;
+      enPublicationsPageData.type_one_title;
 
     setPublicationData(
       "publications_type_one_data",
-      activePublicationsData.type_one_items
+      enPublicationsPageData.type_one_items
     );
 
     document.getElementById("publications_type_two_title").innerHTML =
-      activePublicationsData.type_two_title;
+      enPublicationsPageData.type_two_title;
 
     setPublicationData(
       "publications_type_two_data",
-      activePublicationsData.type_two_items
+      enPublicationsPageData.type_two_items
     );
 
     document.getElementById("publications_type_three_title").innerHTML =
-      activePublicationsData.type_three_title;
+      enPublicationsPageData.type_three_title;
 
     setPublicationData(
       "publications_type_three_data",
-      activePublicationsData.type_three_items
+      enPublicationsPageData.type_three_items
     );
 
     if (document.getElementById("publications_type_four_title")) {
       const fourthTitle = document.getElementById("publications_type_four_title");
       const fourthData = document.getElementById("publications_type_four_data");
       const hasFourthSection =
-        activePublicationsData.type_four_title ||
-        (activePublicationsData.type_four_items &&
-          activePublicationsData.type_four_items.length > 0);
+        enPublicationsPageData.type_four_title ||
+        (enPublicationsPageData.type_four_items &&
+          enPublicationsPageData.type_four_items.length > 0);
 
-      fourthTitle.innerHTML = activePublicationsData.type_four_title || "";
+      fourthTitle.innerHTML = enPublicationsPageData.type_four_title || "";
 
       if (hasFourthSection) {
         setPublicationData(
           "publications_type_four_data",
-          activePublicationsData.type_four_items
+          enPublicationsPageData.type_four_items
         );
         fourthTitle.style.display = "";
         fourthData.style.display = "";
@@ -226,58 +164,72 @@ $(document).ready(function () {
     publicationsData();
   }
 
-  // Research page data
-  function researchData() {
-    const researchPageData = {
-      en: enResearchPageData,
-      kr: krResearchPageData,
-      jp: jpResearchPageData,
-    };
-    const activeResearchData = researchPageData[lang] || enResearchPageData;
-    const pageTitles = {
-      en: "Research",
-      kr: "연구",
-      jp: "研究",
-    };
+  // Study & Seminar page data
+  function studySeminarData() {
+    document.getElementById("page_title").innerText = "Study & Seminar";
 
-    document.getElementById("page_title").innerText =
-      pageTitles[lang] || pageTitles.en;
-
-    document.getElementById("research_title").innerHTML =
-      activeResearchData.title;
-    document.getElementById("research_data").innerHTML =
-      activeResearchData.content;
+    document.getElementById("study_seminar_title").innerHTML =
+      enStudySeminarPageData.title;
+    document.getElementById("study_seminar_data").innerHTML =
+      enStudySeminarPageData.content;
   }
 
-  if (pathname === "/research") {
-    researchData();
+  if (pathname === "/study-seminar/" || pathname === "/study-seminar/index") {
+    studySeminarData();
+  }
+
+  // Projects page data
+  function projectsData() {
+    document.getElementById("page_title").innerText = "Projects";
+    document.getElementById("projects_title").innerHTML = enProjectsPageData.title;
+    document.getElementById("projects_data").innerHTML = enProjectsPageData.items
+      .map(
+        (project) =>
+          `<div class='publications_item'>
+            <div class='publications_header'>
+              ${project.period ? `<span>(${project.period}).</span>` : ""}
+              <h2>${project.title}</h2>
+            </div>
+            <p>${project.abstract}</p>
+            ${
+              project.highlights.length > 0
+                ? `<ul class='project_highlights'>
+                    ${project.highlights.map((highlight) => `<li>${highlight}</li>`).join("")}
+                  </ul>`
+                : ""
+            }
+            ${
+              project.link || project.github
+                ? `<ul class='publications_footer'>
+                    ${
+                      project.link
+                        ? `<li><a href=${project.link} target="_blank">View</a></li>`
+                        : ""
+                    }
+                    ${
+                      project.github
+                        ? `<li><a href=${project.github} target="_blank">Github</a></li>`
+                        : ""
+                    }
+                  </ul>`
+                : ""
+            }
+          </div>`
+      )
+      .join("");
+  }
+
+  if (pathname === "/projects") {
+    projectsData();
   }
 
   // Jobs page data
   function jobsData() {
-    const jobsPageData = {
-      en: enJobsPageData,
-      kr: krJobsPageData,
-      jp: jpJobsPageData,
-    };
-    const activeJobsData = jobsPageData[lang] || enJobsPageData;
-    const pageTitles = {
-      en: "Experience",
-      kr: "경력",
-      jp: "Experience",
-    };
-    const nowLabels = {
-      en: "Now",
-      kr: "현재",
-      jp: "現在",
-    };
+    document.getElementById("page_title").innerText = "Experience";
 
-    document.getElementById("page_title").innerText =
-      pageTitles[lang] || pageTitles.en;
+    document.getElementById("jobs_title").innerHTML = enJobsPageData.title;
 
-    document.getElementById("jobs_title").innerHTML = activeJobsData.title;
-
-    document.getElementById("jobs_data").innerHTML = activeJobsData.items
+    document.getElementById("jobs_data").innerHTML = enJobsPageData.items
       .map(
         (job) =>
           `<div class='job_item'>
@@ -288,7 +240,7 @@ $(document).ready(function () {
               </div>
               <div>
                 <span>${job.startData} - ${
-            job.endDate ? job.endDate : nowLabels[lang] || nowLabels.en
+            job.endDate ? job.endDate : "Now"
           }</span>
                 <span class='job_location'>${job.location}</span>
               </div>
@@ -316,23 +268,12 @@ $(document).ready(function () {
 
   // Contact page data
   const contact_data = {
-    contact_title:
-      (lang === "en" && "Contact") ||
-      (lang === "kr" && "연락처") ||
-      (lang === "jp" && "連絡先") ||
-      "Contact",
+    contact_title: "Contact",
     contact_items: [
       {
         img: "../assets/images/icons/location.png",
-        title:
-          (lang === "en" && globalData.enAddress) ||
-          (lang === "kr" && globalData.krAddress) ||
-          (lang === "jp" && globalData.jpAddress) ||
-          globalData.enAddress,
-        active:
-          globalData.enAddress || globalData.krAddress || globalData.jpAddress
-            ? true
-            : false,
+        title: globalData.enAddress,
+        active: globalData.enAddress ? true : false,
       },
       {
         img: "../assets/images/icons/phone.png",

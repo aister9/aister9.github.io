@@ -1,45 +1,35 @@
 $(document).ready(function () {
-  let lang = localStorage.getItem("lang");
-
-  const supportedLanguages = ["en", "kr", "jp"];
-  if (!lang || !supportedLanguages.includes(lang)) {
-    lang = "en";
-    localStorage.setItem("lang", "en");
-  }
-
-  const navbarByLang = {
-    en: enNavbarData,
-    kr: krNavbarData,
-    jp: jpNavbarData,
-  };
-  const activeNavbarData = navbarByLang[lang] || enNavbarData;
-
   const navbar_data = {
-    title: activeNavbarData.title,
+    title: enNavbarData.title,
     navbar_links: [
       {
         active: navbarLinks.home ? true : false,
-        title: activeNavbarData.Home,
+        title: enNavbarData.Home,
         url: "/",
       },
       {
         active: navbarLinks.publications ? true : false,
-        title: activeNavbarData.publications,
+        title: enNavbarData.publications,
         url: "/publications.html",
       },
       {
-        active: navbarLinks.research ? true : false,
-        title: activeNavbarData.Research,
-        url: "/research.html",
+        active: navbarLinks.studySeminar ? true : false,
+        title: enNavbarData.StudySeminar,
+        url: "/study-seminar/",
+      },
+      {
+        active: navbarLinks.projects ? true : false,
+        title: enNavbarData.Projects,
+        url: "/projects.html",
       },
       {
         active: navbarLinks.jobs ? true : false,
-        title: activeNavbarData.Jobs,
+        title: enNavbarData.Jobs,
         url: "/jobs.html",
       },
       {
         active: navbarLinks.contact ? true : false,
-        title: activeNavbarData.Contact,
+        title: enNavbarData.Contact,
         url: "/contact.html",
       },
     ],

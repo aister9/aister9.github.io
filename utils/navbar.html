@@ -18,32 +18,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav" id="navbar_links"></ul>
-      <div id="language" class="language_wrapper" onClick="languageHandler()">
-        <img id="languageIcon" alt="Language" />
-        <span id="languageText"></span>
-      </div>
     </div>
   </div>
 </nav>
 
 <script src="../assets/scripts/scripts.js"></script>
 <script src="../data/navbar.js"></script>
-
-<script>
-  function languageHandler() {
-    const languageOrder = ["en", "kr", "jp"];
-    let lang = localStorage.getItem("lang") || "en";
-    let currentIndex = languageOrder.indexOf(lang);
-
-    if (currentIndex === -1) {
-      currentIndex = 0;
-    }
-
-    const nextIndex = (currentIndex + 1) % languageOrder.length;
-    localStorage.setItem("lang", languageOrder[nextIndex]);
-    location.reload();
-  }
-</script>
 
 <script>
   AOS.init();

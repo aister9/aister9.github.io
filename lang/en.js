@@ -3,7 +3,8 @@ const enNavbarData = {
   title: "YoungWoo Kim",
   Home: "Home",
   publications: "Publications",
-  Research: "Research",
+  StudySeminar: "Study & Seminar",
+  Projects: "Projects",
   Jobs: "Experience",
   Contact: "Contact",
 };
@@ -16,10 +17,24 @@ const enHomePageData = {
   home_content: `
   <div>
     <p>
-      I am a Ph.D. candidate in Computer Engineering at Korea University of Technology and Education (KOREATECH), working in the SPIN Lab. My research focuses on GPU-accelerated geometry processing, ray-tracing-core computing, proximity queries, and physically grounded 3D simulation.
+      I am a Ph.D. candidate specializing in GPU-accelerated 3D geometry processing and simulation.
     </p>
     <p>
-      My recent work spans Hausdorff distance computation, penetration depth estimation, and real-time 3D surface reconstruction. I am particularly interested in turning hardware-accelerated ray tracing into a practical compute primitive for digital twins, VR/AR, and large-scale geometric analysis.
+      My work focuses on leveraging hardware-accelerated ray tracing (RTX RT cores) to solve computationally intensive problems such as Hausdorff distance, penetration depth, and large-scale 3D reconstruction.
+    </p>
+    <p>
+      I have designed and implemented high-performance GPU systems using CUDA, OptiX, and Thrust, achieving up to 300x speedup compared to conventional CPU-based approaches.
+    </p>
+    <p>
+      My research bridges theory and real-world applications, enabling scalable solutions for:
+    </p>
+    <ul>
+      <li>3D reconstruction and digital twin systems</li>
+      <li>Computer vision and geometry processing</li>
+      <li>Real-time simulation and collision detection</li>
+    </ul>
+    <p>
+      I am particularly interested in applying GPU acceleration to industrial and robotics applications, including large-scale 3D data processing and real-time systems.
     </p>
     <h2 class='title'> Education </h2>
     <ul>
@@ -29,17 +44,22 @@ const enHomePageData = {
     </ul>
     <h2 class='title'> Research Interests </h2>
     <ul>
-      <li>Virtual and augmented reality</li>
-      <li>3D reconstruction and digital twins</li>
-      <li>High-performance computing</li>
-      <li>Proximity queries and physical simulation</li>
+      <li>GPU-accelerated geometry processing</li>
+      <li>Hardware-accelerated ray tracing for computation</li>
+      <li>3D reconstruction and digital twin systems</li>
+      <li>Computer vision and geometry processing</li>
+      <li>Real-time simulation and collision detection</li>
+      <li>Industrial and robotics applications for large-scale 3D data</li>
     </ul>
     <h2 class='title'> Technical Stack </h2>
     <ul>
-      <li>Programming: C++, CUDA, OptiX</li>
-      <li>3D graphics: OpenGL, Unity, mesh processing</li>
-      <li>Libraries: Thrust, CGAL, OpenMVS, OpenCV</li>
+      <li>GPU Computing: CUDA, OptiX, Thrust</li>
+      <li>Graphics & Vision: OpenGL, OpenCV, CGAL</li>
+      <li>3D Reconstruction & Geometry Processing</li>
     </ul>
+    <p>
+      I am open to opportunities in GPU engineering, 3D vision, and simulation systems.
+    </p>
   </div>
   `,
 };
@@ -110,40 +130,116 @@ const enPublicationsPageData = {
   type_four_items: [],
 };
 
-// ---------- Research page data
-const enResearchPageData = {
-  title: "Research",
+// ---------- Study & Seminar page data
+const enStudySeminarPageData = {
+  title: "Study & Seminar",
   content: `
-    <div class='research_content'>
-      <p>
-        My research centers on accelerating geometric computation with modern GPU architectures. I build methods that use ray tracing cores and parallel processing to solve proximity queries, reconstruction, and simulation problems that are typically too expensive for real-time or large-scale use.
-      </p>
-      <br />
-      <h4 style="font-size: 1.1rem">RT-HDIST: Ray-Tracing-Core Hausdorff Distance</h4>
-      <p>
-        From 2023 to 2025, I developed a GPU pipeline for Hausdorff distance computation at KOREATECH SPIN Lab. The project combines BVH-based ray traversal, nearest-neighbor search, and CUDA/OptiX implementation strategies to make large geometric comparisons practical on RTX hardware.
-      </p>
-      <p>
-        The work reported a 334.87x speedup over the CPU baseline and was published in <em>Computer Graphics Forum</em> through the Pacific Graphics 2025 journal track.
-      </p>
-      <br />
-      <h4 style="font-size: 1.1rem">RTRecons: GPU Surface Reconstruction</h4>
-      <p>
-        Since 2024, I have been working on GPU-accelerated 3D surface reconstruction using ray marching, ray-triangle intersection, and Delaunay-tetrahedral graph processing. This research targets faster scene reconstruction pipelines for digital-twin and geometric analysis workloads.
-      </p>
-      <p>
-        In internal evaluation against an OpenMVS CPU baseline, the method achieved a 52.11x acceleration while maintaining a practical reconstruction workflow.
-      </p>
-      <br />
-      <h4 style="font-size: 1.1rem">Penetration Depth and Simulation Queries</h4>
-      <p>
-        I also worked on hardware-accelerated penetration depth estimation from 2022 to 2023. The method uses penetration surface analysis with ray tracing and Hausdorff-distance-style proximity computation to support collision-aware simulation.
-      </p>
-      <p>
-        The GPU implementation achieved a 37.66x speedup over the CPU version and a 5.33x speedup over a previous GPU baseline, leading to publication in <em>The Visual Computer</em>.
-      </p>
+    <div class='publication_container'>
+      <div class='publications_item'>
+        <div class='publications_header'>
+          <h2>Paper Seminar and Study Archive</h2>
+        </div>
+        <p>
+          This section records paper seminars and technical study sessions I presented or organized during my graduate program. It is a learning archive built around reading, summarizing, and discussing prior work rather than a list of my own research contributions.
+        </p>
+      </div>
+      <div class='publications_item'>
+        <div class='publications_header'>
+          <h2>Topics Covered</h2>
+        </div>
+        <p>
+          The seminars span GPU computing, 3D reconstruction, ray tracing applications, rendering, and LiDAR or robotics papers. Each entry represents a paper-based study session or a seminar topic prepared from existing literature.
+        </p>
+      </div>
+      <div class='publications_item'>
+        <div class='publications_header'>
+          <h2>How to Read This Section</h2>
+        </div>
+        <p>
+          The archive is organized chronologically so that it shows how my reading and seminar themes evolved over time. Conference and journal names indicate the source paper discussed in the session, not publications authored by me unless they are separately listed on the Publications page.
+        </p>
+      </div>
+      <div class='publications_item'>
+        <div class='publications_header'>
+          <h2>Archive View</h2>
+        </div>
+        <p>
+          A detailed timeline view of the seminar records is available in the dedicated archive page below.
+        </p>
+        <ul class='publications_footer'>
+          <li><a href="/study-seminar/data.html">Open seminar timeline</a></li>
+        </ul>
+      </div>
     </div>
   `,
+};
+
+// ---------- Projects page data
+const enProjectsPageData = {
+  title: "Projects",
+  items: [
+    {
+      title:
+        "Real-Time 3D Simulation Acceleration Technology Development based on Proximity Query and 3D Reconstruction using Ray Tracing Cores",
+      period: "2024 - 2026",
+      abstract:
+        "NRF-funded project on real-time 3D simulation acceleration using proximity queries and 3D reconstruction built on ray tracing cores.",
+      highlights: [
+        "Role: Principal Researcher",
+        "Funding source: NRF",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "NPU-based Deep Learning Model Acceleration Research",
+      period: "2024",
+      abstract:
+        "Industry project focused on acceleration algorithm development for deep learning models on NPU platforms.",
+      highlights: [
+        "Responsibility: Acceleration algorithm development",
+        "Partner: MarkAny Co., Ltd.",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "SW Development Security Project",
+      period: "2023",
+      abstract:
+        "Software development project conducted for a security-related program.",
+      highlights: [
+        "Partner: Samsung Electronics",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "Development of Haptic Controller",
+      period: "2020 - 2022",
+      abstract:
+        "Funded project for haptic controller development and virtual reality application development.",
+      highlights: [
+        "Responsibility: Virtual reality application development",
+        "Funding source: IITP",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "AI-based Affordable 3D Robot Vision Platform Development",
+      period: "2020 - 2021",
+      abstract:
+        "Joint research project on an AI-based 3D robot vision platform, including dataset generation tools and data visualization workflows.",
+      highlights: [
+        "Responsibility: Dataset generation program development and data visualization",
+        "Collaborator: Hana Vision Tech Co.",
+        "Funding source: TIPA",
+      ],
+      link: "",
+      github: "",
+    },
+  ],
 };
 
 // ---------- Jobs page data
