@@ -23,9 +23,6 @@ const enHomePageData = {
       My work focuses on leveraging hardware-accelerated ray tracing (RTX RT cores) to solve computationally intensive problems such as Hausdorff distance, penetration depth, and large-scale 3D reconstruction.
     </p>
     <p>
-      I have designed and implemented high-performance GPU systems using CUDA, OptiX, and Thrust, achieving up to 300x speedup compared to conventional CPU-based approaches.
-    </p>
-    <p>
       My research bridges theory and real-world applications, enabling scalable solutions for:
     </p>
     <ul>
