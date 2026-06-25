@@ -17,49 +17,35 @@ const enHomePageData = {
   home_content: `
   <div>
     <p>
-      I am a Ph.D. candidate specializing in GPU-accelerated 3D geometry processing and simulation.
+      I am a Ph.D. candidate in Computer Engineering at KOREATECH and a researcher in the SPIN Lab.
     </p>
     <p>
-      My work focuses on leveraging hardware-accelerated ray tracing (RTX RT cores) to solve computationally intensive problems such as Hausdorff distance, penetration depth, and large-scale 3D reconstruction.
+      My research focuses on GPU computing, hardware-accelerated ray tracing, geometric proximity queries, physical simulation, and 3D reconstruction for digital twin and spatial AI systems.
     </p>
     <p>
-      I have designed and implemented high-performance GPU systems using CUDA, OptiX, and Thrust, achieving up to 300x speedup compared to conventional CPU-based approaches.
-    </p>
-    <p>
-      My research bridges theory and real-world applications, enabling scalable solutions for:
-    </p>
-    <ul>
-      <li>3D reconstruction and digital twin systems</li>
-      <li>Computer vision and geometry processing</li>
-      <li>Real-time simulation and collision detection</li>
-    </ul>
-    <p>
-      I am particularly interested in applying GPU acceleration to industrial and robotics applications, including large-scale 3D data processing and real-time systems.
+      Recent work includes ray-tracing-core acceleration for Hausdorff distance computation, penetration depth estimation, and visibility-based surface reconstruction, with applications spanning simulation, holography, and robotics.
     </p>
     <h2 class='title'> Education </h2>
     <ul>
-      <li>Ph.D. in Computer Engineering, KOREATECH, Feb 2022 - Aug 2026 (expected), GPA 4.21/4.5</li>
-      <li>M.S. in Computer Engineering, KOREATECH, Mar 2020 - Feb 2022, GPA 4.25/4.5</li>
-      <li>B.S. in Computer Engineering, KOREATECH, Mar 2013 - Feb 2020, GPA 2.63/4.5</li>
+      <li>Ph.D. in Computer Engineering, KOREATECH, Feb 2022 - Aug 2026 (expected), GPA 4.21/4.50, dissertation: Hardware-Accelerated Ray Tracing-based acceleration for Hausdorff distance computation</li>
+      <li>M.S. in Computer Engineering, KOREATECH, Mar 2020 - Feb 2022, GPA 4.25/4.50, thesis: Real-Time Lens Distortion Algorithm on an Edge Device with GPU</li>
+      <li>B.S. in Computer Engineering, KOREATECH, Mar 2013 - Feb 2020, GPA 2.63/4.50</li>
     </ul>
     <h2 class='title'> Research Interests </h2>
     <ul>
-      <li>GPU-accelerated geometry processing</li>
-      <li>Hardware-accelerated ray tracing for computation</li>
-      <li>3D reconstruction and digital twin systems</li>
-      <li>Computer vision and geometry processing</li>
-      <li>Real-time simulation and collision detection</li>
-      <li>Industrial and robotics applications for large-scale 3D data</li>
+      <li>Spatial AI and digital twins</li>
+      <li>High-performance computing</li>
+      <li>Physical simulation and proximity queries</li>
+      <li>Virtual and augmented reality</li>
     </ul>
-    <h2 class='title'> Technical Stack </h2>
+    <h2 class='title'> Skills </h2>
     <ul>
-      <li>GPU Computing: CUDA, OptiX, Thrust</li>
-      <li>Graphics & Vision: OpenGL, OpenCV, CGAL</li>
-      <li>3D Reconstruction & Geometry Processing</li>
+      <li>Programming: C++, CUDA, Python, Java</li>
+      <li>GPU Computing: CUDA, NVIDIA OptiX, RT Cores, Tensor Cores</li>
+      <li>Physical AI and Spatial Computing: Digital Twins, 3D Reconstruction, Scene Understanding, Physical Simulation</li>
+      <li>Computer Graphics: Point Clouds, Mesh Processing, Geometric Computing, Ray Tracing</li>
+      <li>Development Tools: Git, Linux, Visual Studio, CMake</li>
     </ul>
-    <p>
-      I am open to opportunities in GPU engineering, 3D vision, and simulation systems.
-    </p>
   </div>
   `,
 };
@@ -92,37 +78,69 @@ const enPublicationsPageData = {
       github: "",
       writers: ["Young-Woo Kim", "Hyeon-seok Yang", "Duksu Kim"],
     },
-  ],
-
-  type_two_title: "Posters and Proceedings",
-  type_two_items: [
     {
-      title: `Color-Corrected Full Ray-Based Computer-Generated Holography.`,
-      abstract: `SIGGRAPH Asia 2025 Posters.`,
-      date: "2025",
+      title: `A Large-Depth-Range Layer-Based Hologram Dataset for Machine Learning-Based 3D Computer-Generated Holography.`,
+      abstract: `Published in Optics & Laser Technology. The paper introduces a large-depth-range hologram dataset for machine learning-based 3D computer-generated holography.`,
+      date: "2026",
       link: "",
       github: "",
-      writers: ["Jaehong Lee", "YoungWoo Kim", "Duksu Kim"],
+      writers: ["Jaehong Lee", "YouChan No", "YoungWoo Kim", "Duksu Kim"],
+    },
+  ],
+
+  type_two_title: "Conference Papers",
+  type_two_items: [
+    {
+      title: `RT-VIS: Hardware Ray Tracing for Visibility-based Surface Reconstruction.`,
+      abstract: `Accepted to the Proceedings of the Korea Computer Graphics Society Conference.`,
+      date: "2026",
+      link: "",
+      github: "",
+      writers: ["YoungWoo Kim", "Duksu Kim"],
     },
     {
-      title: `Real-time Lens Distortion Algorithm on Embedded GPU Systems.`,
-      abstract: `ACM SIGGRAPH 2022 Posters.`,
-      date: "2022",
+      title: `Penetration Depth Calculation Using Hardware Accelerated Ray Tracing Core.`,
+      abstract: `Published in the Proceedings of the Korea Computer Graphics Society Conference, pp. 77-78.`,
+      date: "2023",
       link: "",
       github: "",
       writers: ["YoungWoo Kim", "Duksu Kim"],
     },
   ],
 
-  type_three_title: "Preprints",
+  type_three_title: "Posters",
   type_three_items: [
     {
-      title: `A Large-Depth-Range Layer-Based Hologram Dataset for Machine Learning-Based 3D Computer-Generated Holography.`,
-      abstract: `arXiv preprint arXiv:2512.21040.`,
+      title: `Color-Corrected Full Ray-Based Computer-Generated Holography.`,
+      abstract: `Published in Proceedings of SIGGRAPH Asia 2025 Posters, pp. 1-2.`,
       date: "2025",
-      link: "https://arxiv.org/abs/2512.21040",
+      link: "",
       github: "",
-      writers: ["Jaehong Lee", "YouChan No", "YoungWoo Kim", "Duksu Kim"],
+      writers: ["Jaehong Lee", "YoungWoo Kim", "Duksu Kim"],
+    },
+    {
+      title: `Acceleration of 3D Surface Reconstruction Using Hardware-Accelerated Ray Tracing.`,
+      abstract: `Published in the Proceedings of the Korea Computer Graphics Society Conference, pp. 113-114.`,
+      date: "2024",
+      link: "",
+      github: "",
+      writers: ["YoungWoo Kim", "Duksu Kim"],
+    },
+    {
+      title: `Real-Time Lens Distortion Algorithm on Embedded GPU Systems.`,
+      abstract: `Published in ACM SIGGRAPH 2022 Posters, pp. 1-2.`,
+      date: "2022",
+      link: "",
+      github: "",
+      writers: ["YoungWoo Kim", "Duksu Kim"],
+    },
+    {
+      title: `Simulation-Based Dataset Generation Method for Computer Vision Problems.`,
+      abstract: `Published in the Proceedings of the Korea Computer Graphics Society Conference, pp. 95-96.`,
+      date: "2022",
+      link: "",
+      github: "",
+      writers: ["YoungWoo Kim", "YouChan No", "Sanghyun Lee", "Duksu Kim"],
     },
   ],
 
@@ -176,17 +194,38 @@ const enStudySeminarPageData = {
 
 // ---------- Projects page data
 const enProjectsPageData = {
-  title: "Projects",
+  title: "Research Grants & Projects",
   items: [
     {
       title:
         "Real-Time 3D Simulation Acceleration Technology Development based on Proximity Query and 3D Reconstruction using Ray Tracing Cores",
       period: "2024 - 2026",
       abstract:
-        "NRF-funded project on real-time 3D simulation acceleration using proximity queries and 3D reconstruction built on ray tracing cores.",
+        "Research project on real-time 3D simulation via ray-tracing-core-based proximity queries and 3D reconstruction.",
       highlights: [
-        "Role: Principal Researcher",
         "Funding source: NRF",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "High-Performance CGH Technology for Ultra-High-Resolution Hologram Generation",
+      period: "2021 - 2026",
+      abstract:
+        "Long-term hologram generation research project focused on high-performance computer-generated holography.",
+      highlights: [
+        "Funding source: NRF",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "Holo-TV Core Technology Development for Hologram Video Services",
+      period: "2024",
+      abstract:
+        "Core technology development project for hologram video services.",
+      highlights: [
+        "Funding source: IITP",
       ],
       link: "",
       github: "",
@@ -204,10 +243,10 @@ const enProjectsPageData = {
       github: "",
     },
     {
-      title: "SW Development Security Project",
+      title: "Industry-funded Project with Samsung Electronics",
       period: "2023",
       abstract:
-        "Software development project conducted for a security-related program.",
+        "Confidential industry-funded project conducted with Samsung Electronics.",
       highlights: [
         "Partner: Samsung Electronics",
       ],
@@ -218,10 +257,20 @@ const enProjectsPageData = {
       title: "Development of Haptic Controller",
       period: "2020 - 2022",
       abstract:
-        "Funded project for haptic controller development and virtual reality application development.",
+        "Project for haptic controller development and related virtual reality application development.",
       highlights: [
-        "Responsibility: Virtual reality application development",
         "Funding source: IITP",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "Development of an Autonomous Cart Platform with Scalability",
+      period: "2020 - 2022",
+      abstract:
+        "Applied systems development project for a scalable autonomous cart platform.",
+      highlights: [
+        "Funding source: LINC+",
       ],
       link: "",
       github: "",
@@ -230,11 +279,55 @@ const enProjectsPageData = {
       title: "AI-based Affordable 3D Robot Vision Platform Development",
       period: "2020 - 2021",
       abstract:
-        "Joint research project on an AI-based 3D robot vision platform, including dataset generation tools and data visualization workflows.",
+        "Joint research project on an AI-based low-cost 3D robot vision platform.",
       highlights: [
         "Responsibility: Dataset generation program development and data visualization",
         "Collaborator: Hana Vision Tech Co.",
         "Funding source: TIPA",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "High-Performance Scientific Visualization Algorithms on Heterogeneous Parallel Computing Environments",
+      period: "2020 - 2021",
+      abstract:
+        "Research project on scientific visualization algorithms for heterogeneous parallel computing environments.",
+      highlights: [
+        "Funding source: NRF",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "Visualization of 30 Years of KOREATECH Campus Evolution Using a Shape-Changing Display",
+      period: "2020 - 2021",
+      abstract:
+        "Visualization project exploring campus history with a shape-changing display system.",
+      highlights: [
+        "Funding source: KOREATECH",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "High-Performance Diffraction Computation for Accelerating Ultra-High-Resolution Hologram Generation",
+      period: "2021",
+      abstract:
+        "Focused on accelerating diffraction computation for ultra-high-resolution hologram generation.",
+      highlights: [
+        "Funding source: ETRI",
+      ],
+      link: "",
+      github: "",
+    },
+    {
+      title: "Large-Scale Matrix Processing Module for Accelerating Hologram Generation",
+      period: "2020",
+      abstract:
+        "Research project on a large-scale matrix processing module for hologram generation acceleration.",
+      highlights: [
+        "Funding source: ETRI",
       ],
       link: "",
       github: "",
@@ -253,37 +346,37 @@ const enJobsPageData = {
       endDate: "",
       location: "Cheonan, Republic of Korea",
       abstract:
-        "Conducting research on GPU computing, ray-tracing-core acceleration, geometric proximity queries, and 3D reconstruction for simulation and digital-twin applications.",
+        "Conducting research in SPIN Lab on GPU computing, ray-tracing-core acceleration, geometric proximity queries, and 3D reconstruction for simulation and digital twin applications.",
       achievements: [
-        "Led RT-HDIST, a ray-tracing-core Hausdorff distance pipeline published in Computer Graphics Forum.",
-        "Developed RTPD for hardware-accelerated penetration depth computation, later published in The Visual Computer.",
-        "Built GPU-based 3D reconstruction workflows using CUDA, OptiX, Thrust, and CGAL.",
+        "Led RT-HDIST, published in Computer Graphics Forum through the Pacific Graphics 2025 journal track.",
+        "Developed RTPD, published in The Visual Computer.",
+        "Contributed to visibility-based surface reconstruction and holography-related research pipelines.",
       ],
     },
     {
       title: `Part-time Lecturer`,
-      company: "KOREATECH",
+      company: "School of Computer Engineering, KOREATECH",
       startData: "Spring 2024",
       endDate: "Fall 2025",
       location: "Cheonan, Republic of Korea",
       abstract:
         "Taught undergraduate courses as a part-time lecturer while continuing doctoral research.",
       achievements: [
-        "Served as lecturer in Spring 2024.",
-        "Returned as lecturer in Fall 2025.",
+        "Multi-core Programming, Spring 2024.",
+        "Java Programming, Fall 2025.",
       ],
     },
     {
       title: `Teaching Assistant`,
-      company: "KOREATECH",
-      startData: "Fall 2020",
+      company: "School of Computer Engineering, KOREATECH",
+      startData: "Spring 2020",
       endDate: "Fall 2023",
       location: "Cheonan, Republic of Korea",
       abstract:
         "Supported laboratory sessions, exercises, and course operations for core computer engineering classes.",
       achievements: [
-        "Worked across multiple semesters from 2020 to 2023.",
-        "Supported courses including C Programming II and graphics-related classes.",
+        "Supported courses including Multi-core Programming, Computer Graphics, Microprocessors, Algorithms, and C Programming.",
+        "Worked across multiple semesters from Spring 2020 to Fall 2023.",
       ],
     },
   ],
