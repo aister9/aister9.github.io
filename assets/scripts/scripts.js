@@ -74,39 +74,42 @@ $(document).ready(function () {
     document.getElementById(id).innerHTML = data
       .map(
         (publication) => {
-          const footer = publication.link || publication.github
+          const legacyLinks = [
+            publication.link
+              ? { label: "Paper", url: publication.link }
+              : null,
+            publication.github
+              ? { label: "Source", url: publication.github }
+              : null,
+          ].filter(Boolean);
+          const links = publication.links || legacyLinks;
+          const footer = links.length > 0
             ? `<ul class='publications_footer'>
-                ${
-                  publication.link
-                    ? `<li>
-                        <a href=${publication.link} target="_blank"> Paper </a>
+                ${links
+                  .map(
+                    (item) => `<li>
+                        <a href=${item.url} target="_blank">${item.label}</a>
                       </li>`
-                    : ""
-                }
-                ${
-                  publication.github
-                    ? `<li>
-                        <a href=${publication.github} target="_blank"> Source </a>
-                      </li>`
-                    : ""
-                }
+                  )
+                  .join("")}
               </ul>`
             : "";
 
           return `
         <div class='publications_item'>
         <div class='publications_header'>
+          <h2>${publication.title}</h2>
           ${
             publication.writers.length > 0
-              ? publication.writers
-                  .map((writer) => `<span>${writer}</span>`)
-                  .join(", ")
+              ? `<div class='publications_meta'>${publication.writers.join(", ")}</div>`
               : ""
           }
-          ${publication.date ? `<span>(${publication.date}).</span>` : ""}
-          <h2>${publication.title}</h2>
+          ${
+            publication.published_in
+              ? `<p class='publications_venue'>${publication.published_in}</p>`
+              : ""
+          }
         </div>
-        ${publication.published_in ? `<p>${publication.published_in}</p>` : ""}
         ${footer}
       </div>
      `;
@@ -118,52 +121,31 @@ $(document).ready(function () {
   function publicationsData() {
     document.getElementById("page_title").innerText = "Publications";
 
-    document.getElementById("publications_type_one_title").innerHTML =
-      enPublicationsPageData.type_one_title;
+    const sectionKeys = ["one", "two", "three", "four", "five"];
 
-    setPublicationData(
-      "publications_type_one_data",
-      enPublicationsPageData.type_one_items
-    );
+    sectionKeys.forEach((key) => {
+      const titleElement = document.getElementById(`publications_type_${key}_title`);
+      const dataElement = document.getElementById(`publications_type_${key}_data`);
 
-    document.getElementById("publications_type_two_title").innerHTML =
-      enPublicationsPageData.type_two_title;
-
-    setPublicationData(
-      "publications_type_two_data",
-      enPublicationsPageData.type_two_items
-    );
-
-    document.getElementById("publications_type_three_title").innerHTML =
-      enPublicationsPageData.type_three_title;
-
-    setPublicationData(
-      "publications_type_three_data",
-      enPublicationsPageData.type_three_items
-    );
-
-    if (document.getElementById("publications_type_four_title")) {
-      const fourthTitle = document.getElementById("publications_type_four_title");
-      const fourthData = document.getElementById("publications_type_four_data");
-      const hasFourthSection =
-        enPublicationsPageData.type_four_title ||
-        (enPublicationsPageData.type_four_items &&
-          enPublicationsPageData.type_four_items.length > 0);
-
-      fourthTitle.innerHTML = enPublicationsPageData.type_four_title || "";
-
-      if (hasFourthSection) {
-        setPublicationData(
-          "publications_type_four_data",
-          enPublicationsPageData.type_four_items
-        );
-        fourthTitle.style.display = "";
-        fourthData.style.display = "";
-      } else {
-        fourthTitle.style.display = "none";
-        fourthData.style.display = "none";
+      if (!titleElement || !dataElement) {
+        return;
       }
-    }
+
+      const title = enPublicationsPageData[`type_${key}_title`] || "";
+      const items = enPublicationsPageData[`type_${key}_items`] || [];
+      const hasSection = title || items.length > 0;
+
+      titleElement.innerHTML = title;
+
+      if (hasSection) {
+        setPublicationData(`publications_type_${key}_data`, items);
+        titleElement.style.display = "";
+        dataElement.style.display = "";
+      } else {
+        titleElement.style.display = "none";
+        dataElement.style.display = "none";
+      }
+    });
   }
 
   if (pathname === "/publications") {

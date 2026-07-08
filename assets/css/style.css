@@ -147,15 +147,21 @@
   margin-bottom: 1rem;
 }
 
-.publication_container .publications_header span {
+.publication_container .publications_header .publications_meta {
   font-style: italic;
   font-size: 1rem;
+  margin-top: 0.35rem;
 }
 
 .publication_container .publications_header h2 {
-  display: inline;
+  display: block;
   font-size: 1.15rem;
   text-align: justify;
+  margin: 0;
+}
+
+.publication_container .publications_header .publications_venue {
+  margin: 0.35rem 0 0;
 }
 
 .publication_container .publications_item {

@@ -52,40 +52,49 @@ const enHomePageData = {
 
 // ---------- Publications page data
 const enPublicationsPageData = {
-  type_one_title: "SCOPUS",
+  type_one_title: "SCI",
   type_one_items: [
     {
-      title: `RT-HDIST: Ray-Tracing Core-based Hausdorff Distance Computation.`,
-      published_in: `Computer Graphics Forum, Pacific Graphics 2025 journal track, 2025.`,
-      date: "2025",
-      link: "https://hpc-lab-koreatech.github.io/RT-HDIST/",
-      github: "https://github.com/HPC-Lab-KOREATECH/RT-HDIST/",
-      writers: ["YoungWoo Kim", "Jaehong Lee", "Duksu Kim"],
-    },
-    {
-      title: `RTPD: Penetration Depth Calculation Using Hardware-Accelerated Ray Tracing.`,
-      published_in: `The Visual Computer, 2025.`,
-      date: "2025",
-      link: "",
-      github: "",
-      writers: ["YoungWoo Kim", "Sungmin Kwon", "Duksu Kim"],
-    },
-    {
-      title: `Real-time Lens Distortion Algorithm on an Edge Device with GPU.`,
-      published_in: `IEEE Access, 2022.`,
-      date: "2022",
-      link: "",
-      github: "",
-      writers: ["Young-Woo Kim", "Hyeon-seok Yang", "Duksu Kim"],
-    },
-    {
       title: `A Large-Depth-Range Layer-Based Hologram Dataset for Machine Learning-Based 3D Computer-Generated Holography.`,
-      published_in: `Optics & Laser Technology, 2026.`,
+      published_in: `Optics & Laser Technology, Vol. 203, pp. 115636, 2026.`,
       date: "2026",
       link: "https://hpc-lab-koreatech.github.io/KOREATECH-CGH/",
       github: "https://github.com/HPC-Lab-KOREATECH/KOREATECH-CGH",
       writers: ["Jaehong Lee", "YouChan No", "YoungWoo Kim", "Duksu Kim"],
     },
+    {
+      title: `RT-HDIST: Ray-Tracing Core-based Hausdorff Distance Computation`,
+      published_in: `Computer Graphics Forum (Pacific Graphics), Vol. 44, No. 7, 2025.`,
+      date: "2025",
+      links: [
+        { label: "Project", url: "https://hpc-lab-koreatech.github.io/RT-HDIST/" },
+        { label: "Paper", url: "https://onlinelibrary.wiley.com/doi/10.1111/cgf.70229" },
+        { label: "Source", url: "https://github.com/HPC-Lab-KOREATECH/RT-HDIST/tree/main" },
+      ],
+      writers: ["YoungWoo Kim", "Jaehong Lee", "Duksu Kim"],
+    },
+    {
+      title: `RTPD: Penetration Depth calculation using Hardware accelerated Ray-Tracing`,
+      published_in: `The Visual Computer, Vol. 41, pp. 9885-9899, 2025.`,
+      date: "2025",
+      links: [
+        { label: "Paper", url: "https://rdcu.be/eq1gA" },
+      ],
+      writers: ["YoungWoo Kim", "Sungmin Kwon", "Duksu Kim"],
+    },
+    {
+      title: `Real-time Lens Distortion Algorithm on an Edge Device with GPU`,
+      published_in: `IEEE Access, Vol. 10, pp. 41748-41757, 2022.`,
+      date: "2022",
+      links: [
+        { label: "Paper", url: "https://ieeexplore.ieee.org/document/9757191" },
+      ],
+      writers: ["Young-Woo Kim", "Hyeon-seok Yang", "Duksu Kim"],
+    },
+  ],
+
+  type_two_title: "SCOPUS",
+  type_two_items: [
     {
       title: `Deep-Learning Pipeline for Object Pose Estimation from an RGB-D Image.`,
       published_in: `Journal of Institute of Control, Robotics and Systems, Vol. 27, No. 8, pp. 593-601, 2021.`,
@@ -96,8 +105,8 @@ const enPublicationsPageData = {
     },
   ],
 
-  type_two_title: "KCI",
-  type_two_items: [
+  type_three_title: "KCI",
+  type_three_items: [
     {
       title: `Development of Recommendation Model for Image Keypoint Detection and Descriptor Extraction Algorithm.`,
       published_in: `Journal of KIIT, Vol. 19, No. 4, pp. 27-35, 2021.`,
@@ -108,8 +117,8 @@ const enPublicationsPageData = {
     },
   ],
 
-  type_three_title: "Conference Papers",
-  type_three_items: [
+  type_four_title: "Conference Papers",
+  type_four_items: [
     {
       title: `RT-VIS: Hardware Ray Tracing for Visibility-based Surface Reconstruction.`,
       published_in: `Proceedings of the Korea Computer Graphics Society Conference, 2026.`,
@@ -128,8 +137,8 @@ const enPublicationsPageData = {
     },
   ],
 
-  type_four_title: "Posters",
-  type_four_items: [
+  type_five_title: "Posters",
+  type_five_items: [
     {
       title: `Color-Corrected Full Ray-Based Computer-Generated Holography.`,
       published_in: `Proceedings of SIGGRAPH Asia 2025 Posters, pp. 1-2, 2025.`,
@@ -147,11 +156,12 @@ const enPublicationsPageData = {
       writers: ["YoungWoo Kim", "Duksu Kim"],
     },
     {
-      title: `Real-Time Lens Distortion Algorithm on Embedded GPU Systems.`,
-      published_in: `ACM SIGGRAPH 2022 Posters, pp. 1-2, 2022.`,
+      title: `Real-time Lens Distortion Algorithm on Embedded GPU Systems`,
+      published_in: `Poster session, SIGGRAPH 2022.`,
       date: "2022",
-      link: "",
-      github: "",
+      links: [
+        { label: "Extended Abstract", url: "https://dl.acm.org/doi/abs/10.1145/3532719.3543241" },
+      ],
       writers: ["YoungWoo Kim", "Duksu Kim"],
     },
     {
