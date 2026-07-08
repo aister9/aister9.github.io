@@ -52,19 +52,19 @@ const enHomePageData = {
 
 // ---------- Publications page data
 const enPublicationsPageData = {
-  type_one_title: "Journal Articles",
+  type_one_title: "SCOPUS",
   type_one_items: [
     {
       title: `RT-HDIST: Ray-Tracing Core-based Hausdorff Distance Computation.`,
-      abstract: `Accepted to Pacific Graphics 2025 journal track and published in Computer Graphics Forum. This work accelerates Hausdorff distance computation with RTX ray-tracing cores for large point-set and surface comparison workloads.`,
+      published_in: `Computer Graphics Forum, Pacific Graphics 2025 journal track, 2025.`,
       date: "2025",
-      link: "",
-      github: "",
+      link: "https://hpc-lab-koreatech.github.io/RT-HDIST/",
+      github: "https://github.com/HPC-Lab-KOREATECH/RT-HDIST/",
       writers: ["YoungWoo Kim", "Jaehong Lee", "Duksu Kim"],
     },
     {
       title: `RTPD: Penetration Depth Calculation Using Hardware-Accelerated Ray Tracing.`,
-      abstract: `Published in The Visual Computer. The paper presents a GPU pipeline for penetration depth estimation built on hardware ray tracing and proximity-query acceleration.`,
+      published_in: `The Visual Computer, 2025.`,
       date: "2025",
       link: "",
       github: "",
@@ -72,7 +72,7 @@ const enPublicationsPageData = {
     },
     {
       title: `Real-time Lens Distortion Algorithm on an Edge Device with GPU.`,
-      abstract: `Published in IEEE Access. The paper studies real-time lens distortion correction on resource-constrained GPU platforms for embedded visual computing.`,
+      published_in: `IEEE Access, 2022.`,
       date: "2022",
       link: "",
       github: "",
@@ -80,19 +80,39 @@ const enPublicationsPageData = {
     },
     {
       title: `A Large-Depth-Range Layer-Based Hologram Dataset for Machine Learning-Based 3D Computer-Generated Holography.`,
-      abstract: `Published in Optics & Laser Technology. The paper introduces a large-depth-range hologram dataset for machine learning-based 3D computer-generated holography.`,
+      published_in: `Optics & Laser Technology, 2026.`,
       date: "2026",
-      link: "",
-      github: "",
+      link: "https://hpc-lab-koreatech.github.io/KOREATECH-CGH/",
+      github: "https://github.com/HPC-Lab-KOREATECH/KOREATECH-CGH",
       writers: ["Jaehong Lee", "YouChan No", "YoungWoo Kim", "Duksu Kim"],
+    },
+    {
+      title: `Deep-Learning Pipeline for Object Pose Estimation from an RGB-D Image.`,
+      published_in: `Journal of Institute of Control, Robotics and Systems, Vol. 27, No. 8, pp. 593-601, 2021.`,
+      date: "2021",
+      link: "https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE10586063",
+      github: "",
+      writers: ["YouChan No", "YoungWoo Kim", "DaeGeon Kim", "HyunKyu Han", "YoungKi Song", "Duksu Kim"],
     },
   ],
 
-  type_two_title: "Conference Papers",
+  type_two_title: "KCI",
   type_two_items: [
     {
+      title: `Development of Recommendation Model for Image Keypoint Detection and Descriptor Extraction Algorithm.`,
+      published_in: `Journal of KIIT, Vol. 19, No. 4, pp. 27-35, 2021.`,
+      date: "2021",
+      link: "http://ki-it.com/_common/do.php?a=full&b=22&bidx=2536&aidx=28905",
+      github: "",
+      writers: ["YoungWoo Kim", "Duksu Kim", "SeungHee Kim"],
+    },
+  ],
+
+  type_three_title: "Conference Papers",
+  type_three_items: [
+    {
       title: `RT-VIS: Hardware Ray Tracing for Visibility-based Surface Reconstruction.`,
-      abstract: `Accepted to the Proceedings of the Korea Computer Graphics Society Conference.`,
+      published_in: `Proceedings of the Korea Computer Graphics Society Conference, 2026.`,
       date: "2026",
       link: "",
       github: "",
@@ -100,7 +120,7 @@ const enPublicationsPageData = {
     },
     {
       title: `Penetration Depth Calculation Using Hardware Accelerated Ray Tracing Core.`,
-      abstract: `Published in the Proceedings of the Korea Computer Graphics Society Conference, pp. 77-78.`,
+      published_in: `Proceedings of the Korea Computer Graphics Society Conference, pp. 77-78, 2023.`,
       date: "2023",
       link: "",
       github: "",
@@ -108,11 +128,11 @@ const enPublicationsPageData = {
     },
   ],
 
-  type_three_title: "Posters",
-  type_three_items: [
+  type_four_title: "Posters",
+  type_four_items: [
     {
       title: `Color-Corrected Full Ray-Based Computer-Generated Holography.`,
-      abstract: `Published in Proceedings of SIGGRAPH Asia 2025 Posters, pp. 1-2.`,
+      published_in: `Proceedings of SIGGRAPH Asia 2025 Posters, pp. 1-2, 2025.`,
       date: "2025",
       link: "",
       github: "",
@@ -120,7 +140,7 @@ const enPublicationsPageData = {
     },
     {
       title: `Acceleration of 3D Surface Reconstruction Using Hardware-Accelerated Ray Tracing.`,
-      abstract: `Published in the Proceedings of the Korea Computer Graphics Society Conference, pp. 113-114.`,
+      published_in: `Proceedings of the Korea Computer Graphics Society Conference, pp. 113-114, 2024.`,
       date: "2024",
       link: "",
       github: "",
@@ -128,7 +148,7 @@ const enPublicationsPageData = {
     },
     {
       title: `Real-Time Lens Distortion Algorithm on Embedded GPU Systems.`,
-      abstract: `Published in ACM SIGGRAPH 2022 Posters, pp. 1-2.`,
+      published_in: `ACM SIGGRAPH 2022 Posters, pp. 1-2, 2022.`,
       date: "2022",
       link: "",
       github: "",
@@ -136,16 +156,13 @@ const enPublicationsPageData = {
     },
     {
       title: `Simulation-Based Dataset Generation Method for Computer Vision Problems.`,
-      abstract: `Published in the Proceedings of the Korea Computer Graphics Society Conference, pp. 95-96.`,
+      published_in: `Proceedings of the Korea Computer Graphics Society Conference, pp. 95-96, 2022.`,
       date: "2022",
       link: "",
       github: "",
       writers: ["YoungWoo Kim", "YouChan No", "Sanghyun Lee", "Duksu Kim"],
     },
   ],
-
-  type_four_title: "",
-  type_four_items: [],
 };
 
 // ---------- Study & Seminar page data
@@ -381,3 +398,4 @@ const enJobsPageData = {
     },
   ],
 };
+

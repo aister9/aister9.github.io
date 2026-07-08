@@ -73,8 +73,27 @@ $(document).ready(function () {
   const setPublicationData = (id, data) => {
     document.getElementById(id).innerHTML = data
       .map(
-        (publication) =>
-          `
+        (publication) => {
+          const footer = publication.link || publication.github
+            ? `<ul class='publications_footer'>
+                ${
+                  publication.link
+                    ? `<li>
+                        <a href=${publication.link} target="_blank"> Paper </a>
+                      </li>`
+                    : ""
+                }
+                ${
+                  publication.github
+                    ? `<li>
+                        <a href=${publication.github} target="_blank"> Source </a>
+                      </li>`
+                    : ""
+                }
+              </ul>`
+            : "";
+
+          return `
         <div class='publications_item'>
         <div class='publications_header'>
           ${
@@ -87,24 +106,11 @@ $(document).ready(function () {
           ${publication.date ? `<span>(${publication.date}).</span>` : ""}
           <h2>${publication.title}</h2>
         </div>
-        <p>${publication.abstract}</p>
-        <ul class='publications_footer'>
-          ${
-            publication.link &&
-            `<li>
-                <a href=${publication.link} target="_blank"> View </a>
-              </li>`
-          }
-            ${
-              publication.github &&
-              `<li>
-                  <a href=${publication.github} target="_blank"> Github</a>
-                </li>`
-            }
-          
-        </ul>
+        ${publication.published_in ? `<p>${publication.published_in}</p>` : ""}
+        ${footer}
       </div>
-     `
+     `;
+        }
       )
       .join("");
   };
@@ -184,37 +190,23 @@ $(document).ready(function () {
     document.getElementById("projects_title").innerHTML = enProjectsPageData.title;
     document.getElementById("projects_data").innerHTML = enProjectsPageData.items
       .map(
-        (project) =>
-          `<div class='publications_item'>
+        (project) => {
+          const sourceLink = project.github || project.link;
+
+          return `<div class='publications_item'>
             <div class='publications_header'>
               ${project.period ? `<span>(${project.period}).</span>` : ""}
               <h2>${project.title}</h2>
             </div>
-            <p>${project.abstract}</p>
             ${
-              project.highlights.length > 0
-                ? `<ul class='project_highlights'>
-                    ${project.highlights.map((highlight) => `<li>${highlight}</li>`).join("")}
-                  </ul>`
-                : ""
-            }
-            ${
-              project.link || project.github
+              sourceLink
                 ? `<ul class='publications_footer'>
-                    ${
-                      project.link
-                        ? `<li><a href=${project.link} target="_blank">View</a></li>`
-                        : ""
-                    }
-                    ${
-                      project.github
-                        ? `<li><a href=${project.github} target="_blank">Github</a></li>`
-                        : ""
-                    }
+                    <li><a href=${sourceLink} target="_blank">Source</a></li>
                   </ul>`
                 : ""
             }
-          </div>`
+          </div>`;
+        }
       )
       .join("");
   }
@@ -352,3 +344,4 @@ $(document).ready(function () {
     contactData();
   }
 });
+
