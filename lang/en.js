@@ -52,7 +52,7 @@ const enHomePageData = {
 
 // ---------- Publications page data
 const enPublicationsPageData = {
-  type_one_title: "SCI",
+  type_one_title: "SCIE",
   type_one_items: [
     {
       title: `A Large-Depth-Range Layer-Based Hologram Dataset for Machine Learning-Based 3D Computer-Generated Holography.`,
