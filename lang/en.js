@@ -23,19 +23,7 @@ const enHomePageData = {
       My research focuses on GPU computing, hardware-accelerated ray tracing, geometric proximity queries, physical simulation, and 3D reconstruction for digital twin and spatial AI systems.
     </p>
     <p>
-<<<<<<< HEAD
       Recent work includes ray-tracing-core acceleration for Hausdorff distance computation, penetration depth estimation, and visibility-based surface reconstruction, with applications spanning simulation, holography, and robotics.
-=======
-      My research bridges theory and real-world applications, enabling scalable solutions for:
-    </p>
-    <ul>
-      <li>3D reconstruction and digital twin systems</li>
-      <li>Computer vision and geometry processing</li>
-      <li>Real-time simulation and collision detection</li>
-    </ul>
-    <p>
-      I am particularly interested in applying GPU acceleration to industrial and robotics applications, including large-scale 3D data processing and real-time systems.
->>>>>>> 2e9c6e3c7ed8e5fa7edb5d4db5283f8f5bfc9f82
     </p>
     <h2 class='title'> Education </h2>
     <ul>

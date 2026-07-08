@@ -9,7 +9,7 @@ const navbarLinks = {
 
 const globalData = {
   image: "../files/profile.jpg",
-  resume: "../files/CV.pdf",
+  resume: "../files/YW_CV.pdf",
   enAddress: "Cheonan-si, Chungcheongnam-do, Republic of Korea",
   krAddress: "대한민국 충청남도 천안시",
   jpAddress: "大韓民国 忠清南道 天安市",
